@@ -1,5 +1,5 @@
 # GoogleUnitTestIDE
-An Integrated Development Environment for Google Unit Test Development
+An Integrated Development Environment for  Unit Test Development using Gtest and Gmock Libraries
 # Prerequisites
 1.	Windows 7 Operating System
 2.	Python 3.4
