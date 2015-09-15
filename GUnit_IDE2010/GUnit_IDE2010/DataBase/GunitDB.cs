@@ -10,14 +10,9 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
 
 
 
@@ -1068,8 +1063,6 @@ public partial class DataType : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<Typedef> _Typedef_Type_02;
 	
-	private EntitySet<Variables> _Variables;
-	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1098,7 +1091,6 @@ public partial class DataType : INotifyPropertyChanging, INotifyPropertyChanged
 		this._ReferenceType_Type_02 = new EntitySet<ReferenceType>(new Action<ReferenceType>(this.attach_ReferenceType_Type_02), new Action<ReferenceType>(this.detach_ReferenceType_Type_02));
 		this._Typedef = new EntitySet<Typedef>(new Action<Typedef>(this.attach_Typedef), new Action<Typedef>(this.detach_Typedef));
 		this._Typedef_Type_02 = new EntitySet<Typedef>(new Action<Typedef>(this.attach_Typedef_Type_02), new Action<Typedef>(this.detach_Typedef_Type_02));
-		this._Variables = new EntitySet<Variables>(new Action<Variables>(this.attach_Variables), new Action<Variables>(this.detach_Variables));
 		OnCreated();
 	}
 	
@@ -1338,19 +1330,6 @@ public partial class DataType : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[Association(Name="FK_Variables_Type", Storage="_Variables", ThisKey="ID", OtherKey="Type", DeleteRule="NO ACTION")]
-	public EntitySet<Variables> Variables
-	{
-		get
-		{
-			return this._Variables;
-		}
-		set
-		{
-			this._Variables.Assign(value);
-		}
-	}
-	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -1513,18 +1492,6 @@ public partial class DataType : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		this.SendPropertyChanging();
 		entity.UnderlyingTypeDataType = null;
-	}
-	
-	private void attach_Variables(Variables entity)
-	{
-		this.SendPropertyChanging();
-		entity.DataType = this;
-	}
-	
-	private void detach_Variables(Variables entity)
-	{
-		this.SendPropertyChanging();
-		entity.DataType = null;
 	}
 }
 
@@ -5690,15 +5657,13 @@ public partial class Variables : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private System.Nullable<int> _StorageClass;
 	
-	private System.Nullable<int> _Type;
+	private System.Nullable<int> _TypeKind;
 	
 	private EntitySet<GlobalVariables> _GlobalVariables;
 	
 	private EntitySet<MemberVariables> _MemberVariables;
 	
 	private EntitySet<StructureFields> _StructureFields;
-	
-	private EntityRef<DataType> _DataType;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -5718,8 +5683,8 @@ public partial class Variables : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnLineChanged();
     partial void OnStorageClassChanging(System.Nullable<int> value);
     partial void OnStorageClassChanged();
-    partial void OnTypeChanging(System.Nullable<int> value);
-    partial void OnTypeChanged();
+    partial void OnTypeKindChanging(System.Nullable<int> value);
+    partial void OnTypeKindChanged();
     #endregion
 	
 	public Variables()
@@ -5727,7 +5692,6 @@ public partial class Variables : INotifyPropertyChanging, INotifyPropertyChanged
 		this._GlobalVariables = new EntitySet<GlobalVariables>(new Action<GlobalVariables>(this.attach_GlobalVariables), new Action<GlobalVariables>(this.detach_GlobalVariables));
 		this._MemberVariables = new EntitySet<MemberVariables>(new Action<MemberVariables>(this.attach_MemberVariables), new Action<MemberVariables>(this.detach_MemberVariables));
 		this._StructureFields = new EntitySet<StructureFields>(new Action<StructureFields>(this.attach_StructureFields), new Action<StructureFields>(this.detach_StructureFields));
-		this._DataType = default(EntityRef<DataType>);
 		OnCreated();
 	}
 	
@@ -5871,26 +5835,22 @@ public partial class Variables : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[Column(Storage="_Type", DbType="Int")]
-	public System.Nullable<int> Type
+	[Column(Storage="_TypeKind", DbType="Int")]
+	public System.Nullable<int> TypeKind
 	{
 		get
 		{
-			return this._Type;
+			return this._TypeKind;
 		}
 		set
 		{
-			if ((this._Type != value))
+			if ((this._TypeKind != value))
 			{
-				if (this._DataType.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.OnTypeChanging(value);
+				this.OnTypeKindChanging(value);
 				this.SendPropertyChanging();
-				this._Type = value;
-				this.SendPropertyChanged("Type");
-				this.OnTypeChanged();
+				this._TypeKind = value;
+				this.SendPropertyChanged("TypeKind");
+				this.OnTypeKindChanged();
 			}
 		}
 	}
@@ -5931,40 +5891,6 @@ public partial class Variables : INotifyPropertyChanging, INotifyPropertyChanged
 		set
 		{
 			this._StructureFields.Assign(value);
-		}
-	}
-	
-	[Association(Name="FK_Variables_Type", Storage="_DataType", ThisKey="Type", OtherKey="ID", IsForeignKey=true)]
-	public DataType DataType
-	{
-		get
-		{
-			return this._DataType.Entity;
-		}
-		set
-		{
-			DataType previousValue = this._DataType.Entity;
-			if (((previousValue != value) 
-						|| (this._DataType.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._DataType.Entity = null;
-					previousValue.Variables.Remove(this);
-				}
-				this._DataType.Entity = value;
-				if ((value != null))
-				{
-					value.Variables.Add(this);
-					this._Type = value.ID;
-				}
-				else
-				{
-					this._Type = default(Nullable<int>);
-				}
-				this.SendPropertyChanged("DataType");
-			}
 		}
 	}
 	

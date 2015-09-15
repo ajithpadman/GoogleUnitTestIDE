@@ -151,7 +151,10 @@ namespace GUnit_IDE2010.GunitParser
                     ClassVisitor(child, node, classes, parentFile);
                 }
             }
-            currentParent.Nodes.Add(node);
+            if (null != currentParent)
+            {
+                currentParent.Nodes.Add(node);
+            }
 
             
             return classes;
@@ -357,7 +360,7 @@ namespace GUnit_IDE2010.GunitParser
             {
                 if (child.Kind == CursorKind.FieldDecl)
                 {
-                    if (isLinkedList(l_type, child.Type) == false)
+                   // if (isLinkedList(l_type, child.Type) == false)
                     {
                         StructureFields field = new StructureFields();
                         ProjectFiles file = new ProjectFiles();
@@ -382,7 +385,7 @@ namespace GUnit_IDE2010.GunitParser
             {
                 ProjectFiles file = new ProjectFiles();
                 file.FilePath = l_type.Declaration.Location.File.Name;
-                visitClassDecl(l_type.Declaration, null, file.FilePath, file);
+                //visitClassDecl(l_type.Declaration, null, file.FilePath, file);
             }
             record.DataType = type;
             record.TypeKind = (int)l_type.TypeKind;
@@ -532,7 +535,7 @@ namespace GUnit_IDE2010.GunitParser
 
             IEnumerable<ClangSharp.Cursor> CalledList = from child in cursor.Descendants
                                                  where (child.Kind == CursorKind.CallExpr)
-                                                 select child;
+                                                        select child;
             
             TreeNode FunctionNode = new TreeNode(method.ReturnType + " " + method.EntityName + "(" + method.Parameters+")");
             FunctionNode.Tag = tag;
@@ -619,9 +622,84 @@ namespace GUnit_IDE2010.GunitParser
 
             return method;
         }
-        
-       
-      
+
+
+        private DataTypeKind getTypeKind( ClangSharp.Type l_type)
+        {
+            DataTypeKind typeKind = DataTypeKind.OtherType;
+            switch (l_type.TypeKind)
+            {
+                case ClangSharp.Type.Kind.BlockPointer:
+                case ClangSharp.Type.Kind.Pointer:
+                case ClangSharp.Type.Kind.MemberPointer:
+
+                    typeKind = DataTypeKind.PointerType;
+                    break;
+                case ClangSharp.Type.Kind.Bool:
+                case ClangSharp.Type.Kind.CharU:
+                case ClangSharp.Type.Kind.UChar:
+                case ClangSharp.Type.Kind.Char16:
+                case ClangSharp.Type.Kind.Char32:
+                case ClangSharp.Type.Kind.UShort:
+                case ClangSharp.Type.Kind.UInt:
+                case ClangSharp.Type.Kind.ULong:
+                case ClangSharp.Type.Kind.ULongLong:
+                case ClangSharp.Type.Kind.UInt128:
+                case ClangSharp.Type.Kind.CharS:
+                case ClangSharp.Type.Kind.SChar:
+                case ClangSharp.Type.Kind.WChar:
+                case ClangSharp.Type.Kind.Short:
+                case ClangSharp.Type.Kind.Int:
+                case ClangSharp.Type.Kind.Long:
+                case ClangSharp.Type.Kind.LongLong:
+                case ClangSharp.Type.Kind.Int128:
+                case ClangSharp.Type.Kind.Float:
+                case ClangSharp.Type.Kind.Double:
+                case ClangSharp.Type.Kind.LongDouble:
+
+
+                    typeKind = DataTypeKind.ArithmeticType;
+                    break;
+                case ClangSharp.Type.Kind.Record:
+
+                    typeKind = DataTypeKind.RecordType;
+                    break;
+                case ClangSharp.Type.Kind.Enum:
+
+                    typeKind = DataTypeKind.EnumType;
+                    break;
+                case ClangSharp.Type.Kind.LValueReference:
+                case ClangSharp.Type.Kind.RValueReference:
+
+                    typeKind = DataTypeKind.ReferenceType;
+                    break;
+                case ClangSharp.Type.Kind.Typedef:
+
+                    typeKind = DataTypeKind.TypedefType;
+                    break;
+                case ClangSharp.Type.Kind.Unexposed:
+                    if (l_type.Declaration.Kind == CursorKind.StructDecl)
+                    {
+
+                        typeKind = DataTypeKind.RecordType;
+                    }
+                    else if (l_type.Declaration.Kind == CursorKind.ClassDecl)
+                    {
+
+                        typeKind = DataTypeKind.RecordType;
+                    }
+                    else if (l_type.Declaration.Kind == CursorKind.EnumDecl)
+                    {
+
+                        typeKind = DataTypeKind.EnumType;
+                    }
+                    break;
+                default:
+                    break;
+
+            }
+            return typeKind;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -638,7 +716,7 @@ namespace GUnit_IDE2010.GunitParser
             variable.StorageClass = (int)cursor.StorageClassSpecifier;
             variable.VariableName = cursor.Spelling;
             variable.VariableType = cursor.Type.Spelling;
-            variable.DataType = VisitDataType(cursor, cursor.Type);
+            variable.TypeKind = (int)getTypeKind(cursor.Type);
 
             TreeNode node = new TreeNode(variable.VariableName + ":" + variable.VariableType);
             if (cursor.Kind == CursorKind.FieldDecl)
@@ -653,10 +731,6 @@ namespace GUnit_IDE2010.GunitParser
             {
                 parent.Nodes.Add(node);
             }
-           
-         
-            
-            
             return variable;
 
         }
@@ -695,7 +769,7 @@ namespace GUnit_IDE2010.GunitParser
                 default:
                     foreach (ClangSharp.Cursor child in cursor.Children)
                     {
-
+                        if(cursor.Type.Spelling != child.Type.Spelling)
                         ClassVisitor(child, Parent, parentClass, parentFile);
                     }
                     break;

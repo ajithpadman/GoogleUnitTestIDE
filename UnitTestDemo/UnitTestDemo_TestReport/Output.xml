@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="14" failures="0" disabled="0" errors="0" timestamp="2015-09-15T22:03:37" time="2.675" name="AllTests">
+  <testsuite name="UnitDemo_function4_b_BoundaryTest_/UnitDemo_function4_b_BoundaryFixture" tests="8" failures="0" disabled="0" errors="0" time="1.67">
+    <testcase name="UnitDemo_function4_b_Test/0" value_param="(0x56acd2, 0, 0x56acb4)" status="run" time="0.157" classname="UnitDemo_function4_b_BoundaryTest_/UnitDemo_function4_b_BoundaryFixture" />
+    <testcase name="UnitDemo_function4_b_Test/1" value_param="(0x56acd2, 0, 0x56acbc)" status="run" time="0.25" classname="UnitDemo_function4_b_BoundaryTest_/UnitDemo_function4_b_BoundaryFixture" />
+    <testcase name="UnitDemo_function4_b_Test/2" value_param="(0x56acd2, 4294967295, 0x56acb4)" status="run" time="0.25" classname="UnitDemo_function4_b_BoundaryTest_/UnitDemo_function4_b_BoundaryFixture" />
+    <testcase name="UnitDemo_function4_b_Test/3" value_param="(0x56acd2, 4294967295, 0x56acbc)" status="run" time="0.192" classname="UnitDemo_function4_b_BoundaryTest_/UnitDemo_function4_b_BoundaryFixture" />
+    <testcase name="UnitDemo_function4_b_Test/4" value_param="(0x56acd6, 0, 0x56acb4)" status="run" time="0.39" classname="UnitDemo_function4_b_BoundaryTest_/UnitDemo_function4_b_BoundaryFixture" />
+    <testcase name="UnitDemo_function4_b_Test/5" value_param="(0x56acd6, 0, 0x56acbc)" status="run" time="0.157" classname="UnitDemo_function4_b_BoundaryTest_/UnitDemo_function4_b_BoundaryFixture" />
+    <testcase name="UnitDemo_function4_b_Test/6" value_param="(0x56acd6, 4294967295, 0x56acb4)" status="run" time="0.148" classname="UnitDemo_function4_b_BoundaryTest_/UnitDemo_function4_b_BoundaryFixture" />
+    <testcase name="UnitDemo_function4_b_Test/7" value_param="(0x56acd6, 4294967295, 0x56acbc)" status="run" time="0.125" classname="UnitDemo_function4_b_BoundaryTest_/UnitDemo_function4_b_BoundaryFixture" />
+  </testsuite>
+  <testsuite name="UnitDemo_function3_u8_BoundaryTest_/UnitDemo_function3_u8_BoundaryFixture" tests="4" failures="0" disabled="0" errors="0" time="0.589">
+    <testcase name="UnitDemo_function3_u8_Test/0" value_param="(0, 0)" status="run" time="0.214" classname="UnitDemo_function3_u8_BoundaryTest_/UnitDemo_function3_u8_BoundaryFixture" />
+    <testcase name="UnitDemo_function3_u8_Test/1" value_param="(0, 4294967295)" status="run" time="0.106" classname="UnitDemo_function3_u8_BoundaryTest_/UnitDemo_function3_u8_BoundaryFixture" />
+    <testcase name="UnitDemo_function3_u8_Test/2" value_param="(65535, 0)" status="run" time="0.104" classname="UnitDemo_function3_u8_BoundaryTest_/UnitDemo_function3_u8_BoundaryFixture" />
+    <testcase name="UnitDemo_function3_u8_Test/3" value_param="(65535, 4294967295)" status="run" time="0.165" classname="UnitDemo_function3_u8_BoundaryTest_/UnitDemo_function3_u8_BoundaryFixture" />
+  </testsuite>
+  <testsuite name="UnitDemo_function2_v_BoundaryTest_/UnitDemo_function2_v_BoundaryFixture" tests="2" failures="0" disabled="0" errors="0" time="0.416">
+    <testcase name="UnitDemo_function2_v_Test/0" value_param="&apos;\0&apos;" status="run" time="0.322" classname="UnitDemo_function2_v_BoundaryTest_/UnitDemo_function2_v_BoundaryFixture" />
+    <testcase name="UnitDemo_function2_v_Test/1" value_param="&apos;\xFF&apos; (255)" status="run" time="0.094" classname="UnitDemo_function2_v_BoundaryTest_/UnitDemo_function2_v_BoundaryFixture" />
+  </testsuite>
+</testsuites>

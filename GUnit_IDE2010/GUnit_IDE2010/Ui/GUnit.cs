@@ -662,15 +662,18 @@ namespace Gunit.Ui
                     }
                 }
             }
-            UserInput name = new UserInput();
-            name.Text = "Enter the ModuleName";
-            if (DialogResult.OK == name.ShowDialog())
+            if (GlobalMethods.Count() > 0)
             {
-                ModuleName = name.Result;
+                UserInput name = new UserInput();
+                name.Text = "Enter the ModuleName";
+                if (DialogResult.OK == name.ShowDialog())
+                {
+                    ModuleName = name.Result;
+                }
+                CodeGenDataModel Globalmodel = new CodeGenDataModel();
+                MockGenerator GlobalmockGen = new MockGenerator(Path.GetDirectoryName(m_ProjectModel.ProjectPath) + "\\" + m_ProjectModel.ProjectName + "_Mocks", Globalmodel);
+                GlobalmockGen.generateMockClass(GlobalMethods, ModuleName);
             }
-            CodeGenDataModel Globalmodel = new CodeGenDataModel();
-            MockGenerator GlobalmockGen = new MockGenerator(Path.GetDirectoryName(m_ProjectModel.ProjectPath) + "\\" + m_ProjectModel.ProjectName + "_Mocks", Globalmodel);
-            GlobalmockGen.generateMockClass(GlobalMethods, ModuleName);
             MessageBox.Show("Mocks generated in " +  m_ProjectModel.ProjectName + "_Mocks folder");
         }
 

@@ -1,0 +1,53 @@
+﻿<Project
+  name="UnitTestDemo">
+  <Files>
+    <SourceFiles>
+      <File
+        Path="UnitTestDemo.c" />
+      <File
+        Path="UnitTestDemo_Mocks/Mock_DemoMock.cpp" />
+    </SourceFiles>
+    <HeaderFiles>
+      <File
+        Path="UnitTestDemo.h" />
+      <File
+        Path="Includes/ExtModule.h" />
+      <File
+        Path="UnitTestDemo_Mocks/Mock_DemoMock.h" />
+    </HeaderFiles>
+  </Files>
+  <ProjectHeaders>
+    <Include
+      Path="Includes/Types.h" />
+  </ProjectHeaders>
+  <IncludePaths>
+    <Include
+      Path="../UnitTestDemo" />
+    <Include
+      Path="Includes" />
+    <Include
+      Path="UnitTestDemo_Mocks" />
+    <Include
+      Path="GtestIncludes" />
+  </IncludePaths>
+  <LibPaths>
+    <Lib
+      Path="libs" />
+  </LibPaths>
+  <LibNames>
+    <LibName
+      Path="gmock" />
+    <LibName
+      Path="gtest_maind" />
+    <LibName
+      Path="gmock_main" />
+    <LibName
+      Path="gtestd" />
+  </LibNames>
+  <Defines />
+  <Bin
+    Path="./" />
+  <Database
+    Path="UnitTestDemo.sdf"
+    Version="" />
+</Project>

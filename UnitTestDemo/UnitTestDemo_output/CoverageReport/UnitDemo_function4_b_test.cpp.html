@@ -1,0 +1,717 @@
+<html>
+	<head>
+		<title title="UnitDemo_function4_b_test.cpp.gcov">
+
+		</title>
+	</head><body>
+		<div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*! 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \file 
+
+		</div><div style="background-color:#FAFAFA;">
+			* 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \author MMEMEA\F11786B
+
+		</div><div style="background-color:#FAFAFA;">
+			* \version 1.0
+
+		</div><div style="background-color:#FAFAFA;">
+			* \date 9/15/2015 12:00:00 AM
+
+		</div><div style="background-color:#FAFAFA;">
+			*/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			/*Header Files*/
+
+		</div><div style="background-color:#FAFAFA;">
+			#include "gtest/gtest.h"
+
+		</div><div style="background-color:#FAFAFA;">
+			#include "gmock/gmock.h"
+
+		</div><div style="background-color:#FAFAFA;">
+			#include "tr1/tuple"
+
+		</div><div style="background-color:#FAFAFA;">
+			#include "limits"
+
+		</div><div style="background-color:#FAFAFA;">
+			/*Namespace References*/
+
+		</div><div style="background-color:#FAFAFA;">
+			using ::testing::TestWithParam;
+
+		</div><div style="background-color:#FAFAFA;">
+			using ::testing::Values;
+
+		</div><div style="background-color:#FAFAFA;">
+			using ::testing::Combine;
+
+		</div><div style="background-color:#FAFAFA;">
+			using ::testing::Bool;
+
+		</div><div style="background-color:#FAFAFA;">
+			using ::testing::Range;
+
+		</div><div style="background-color:#FAFAFA;">
+			using ::testing::ExitedWithCode;
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			extern Boolean UnitDemo_function4_b(u16 *,u32,u32 *);
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*! 
+
+		</div><div style="background-color:#FAFAFA;">
+			*  \class UnitDemo_function4_b_BoundaryFixture
+
+		</div><div style="background-color:#FAFAFA;">
+			* Boundary test Suit for method UnitDemo_function4_b
+
+		</div><div style="background-color:#FAFAFA;">
+			* \author MMEMEA\F11786B
+
+		</div><div style="background-color:#FAFAFA;">
+			* \version 1.0
+
+		</div><div style="background-color:#FAFAFA;">
+			* \date 9/15/2015 12:00:00 AM
+
+		</div><div style="background-color:#FAFAFA;">
+			*/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			class UnitDemo_function4_b_BoundaryFixture:public TestWithParam<std::tr1::tuple<u16 *,u32,u32 *> >
+
+		</div><div style="background-color:#FAFAFA;">
+			{
+
+		</div><div style="background-color:#FAFAFA;">
+			public:
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*! 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \fn void SetUp()
+
+		</div><div style="background-color:#FAFAFA;">
+			* Set up for each tests 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \author MMEMEA\F11786B
+
+		</div><div style="background-color:#FAFAFA;">
+			* \version 1.0
+
+		</div><div style="background-color:#FAFAFA;">
+			* \date 9/15/2015 12:00:00 AM
+
+		</div><div style="background-color:#FAFAFA;">
+			*/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			virtual void SetUp()
+
+		</div><div style="background-color:#FAFAFA;">
+			{
+
+		</div><div style="background-color:#58FA58;">
+			}
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*! 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \fn void TearDown()
+
+		</div><div style="background-color:#FAFAFA;">
+			* Tear Down each tests 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \author MMEMEA\F11786B
+
+		</div><div style="background-color:#FAFAFA;">
+			* \version 1.0
+
+		</div><div style="background-color:#FAFAFA;">
+			* \date 9/15/2015 12:00:00 AM
+
+		</div><div style="background-color:#FAFAFA;">
+			*/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			virtual void TearDown()
+
+		</div><div style="background-color:#FAFAFA;">
+			{
+
+		</div><div style="background-color:#58FA58;">
+			}
+
+		</div><div style="background-color:#FAFAFA;">
+			};
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*! 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \fn u16 * getParamMax_0()
+
+		</div><div style="background-color:#FAFAFA;">
+			* Get the maximum value for Parameter 0
+
+		</div><div style="background-color:#FAFAFA;">
+			* \author MMEMEA\F11786B
+
+		</div><div style="background-color:#FAFAFA;">
+			* \version 1.0
+
+		</div><div style="background-color:#FAFAFA;">
+			* \date 9/15/2015 12:00:00 AM
+
+		</div><div style="background-color:#FAFAFA;">
+			*/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			static u16 * getParamMax_0()
+
+		</div><div style="background-color:#FAFAFA;">
+			{
+
+		</div><div style="background-color:#58FA58;">
+			static unsigned short member_0_ActualType_ActualType =  std::numeric_limits < unsigned short >::max();
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			static u16 member_0_ActualType = member_0_ActualType_ActualType;
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			static u16 * member_0 = &member_0_ActualType;
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			return  member_0;
+
+		</div><div style="background-color:#FAFAFA;">
+			}
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*! 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \fn u16 * getParamMin_0()
+
+		</div><div style="background-color:#FAFAFA;">
+			* Get the minimum value for Parameter 0
+
+		</div><div style="background-color:#FAFAFA;">
+			* \author MMEMEA\F11786B
+
+		</div><div style="background-color:#FAFAFA;">
+			* \version 1.0
+
+		</div><div style="background-color:#FAFAFA;">
+			* \date 9/15/2015 12:00:00 AM
+
+		</div><div style="background-color:#FAFAFA;">
+			*/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			static u16 * getParamMin_0()
+
+		</div><div style="background-color:#FAFAFA;">
+			{
+
+		</div><div style="background-color:#58FA58;">
+			static unsigned short member_0_ActualType_ActualType =  std::numeric_limits < unsigned short >::min();
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			static u16 member_0_ActualType = member_0_ActualType_ActualType;
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			static u16 * member_0 = &member_0_ActualType;
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			return member_0;
+
+		</div><div style="background-color:#FAFAFA;">
+			}
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*! 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \fn u32 getParamMax_1()
+
+		</div><div style="background-color:#FAFAFA;">
+			* Get the maximum value for Parameter 1
+
+		</div><div style="background-color:#FAFAFA;">
+			* \author MMEMEA\F11786B
+
+		</div><div style="background-color:#FAFAFA;">
+			* \version 1.0
+
+		</div><div style="background-color:#FAFAFA;">
+			* \date 9/15/2015 12:00:00 AM
+
+		</div><div style="background-color:#FAFAFA;">
+			*/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			static u32 getParamMax_1()
+
+		</div><div style="background-color:#FAFAFA;">
+			{
+
+		</div><div style="background-color:#58FA58;">
+			static unsigned int member_1_ActualType =  std::numeric_limits < unsigned int >::max();
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			static u32 member_1 = member_1_ActualType;
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			return member_1;
+
+		</div><div style="background-color:#FAFAFA;">
+			}
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*! 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \fn u32 getParamMin_1()
+
+		</div><div style="background-color:#FAFAFA;">
+			* Get the minimum value for Parameter 1
+
+		</div><div style="background-color:#FAFAFA;">
+			* \author MMEMEA\F11786B
+
+		</div><div style="background-color:#FAFAFA;">
+			* \version 1.0
+
+		</div><div style="background-color:#FAFAFA;">
+			* \date 9/15/2015 12:00:00 AM
+
+		</div><div style="background-color:#FAFAFA;">
+			*/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			static u32 getParamMin_1()
+
+		</div><div style="background-color:#FAFAFA;">
+			{
+
+		</div><div style="background-color:#58FA58;">
+			static unsigned int member_1_ActualType =  std::numeric_limits < unsigned int >::min();
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			static u32 member_1 = member_1_ActualType;
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			return member_1;
+
+		</div><div style="background-color:#FAFAFA;">
+			}
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*! 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \fn u32 * getParamMax_2()
+
+		</div><div style="background-color:#FAFAFA;">
+			* Get the maximum value for Parameter 2
+
+		</div><div style="background-color:#FAFAFA;">
+			* \author MMEMEA\F11786B
+
+		</div><div style="background-color:#FAFAFA;">
+			* \version 1.0
+
+		</div><div style="background-color:#FAFAFA;">
+			* \date 9/15/2015 12:00:00 AM
+
+		</div><div style="background-color:#FAFAFA;">
+			*/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			static u32 * getParamMax_2()
+
+		</div><div style="background-color:#FAFAFA;">
+			{
+
+		</div><div style="background-color:#58FA58;">
+			static unsigned int member_2_ActualType_ActualType =  std::numeric_limits < unsigned int >::max();
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			static u32 member_2_ActualType = member_2_ActualType_ActualType;
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			static u32 * member_2 = &member_2_ActualType;
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			return  member_2;
+
+		</div><div style="background-color:#FAFAFA;">
+			}
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*! 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \fn u32 * getParamMin_2()
+
+		</div><div style="background-color:#FAFAFA;">
+			* Get the minimum value for Parameter 2
+
+		</div><div style="background-color:#FAFAFA;">
+			* \author MMEMEA\F11786B
+
+		</div><div style="background-color:#FAFAFA;">
+			* \version 1.0
+
+		</div><div style="background-color:#FAFAFA;">
+			* \date 9/15/2015 12:00:00 AM
+
+		</div><div style="background-color:#FAFAFA;">
+			*/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			static u32 * getParamMin_2()
+
+		</div><div style="background-color:#FAFAFA;">
+			{
+
+		</div><div style="background-color:#58FA58;">
+			static unsigned int member_2_ActualType_ActualType =  std::numeric_limits < unsigned int >::min();
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			static u32 member_2_ActualType = member_2_ActualType_ActualType;
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			static u32 * member_2 = &member_2_ActualType;
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			return member_2;
+
+		</div><div style="background-color:#FAFAFA;">
+			}
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*! 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \fn INSTANTIATE_TEST_CASE_P
+
+		</div><div style="background-color:#FAFAFA;">
+			* Instantiate the Test value Fixture 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \author MMEMEA\F11786B
+
+		</div><div style="background-color:#FAFAFA;">
+			* \version 1.0
+
+		</div><div style="background-color:#FAFAFA;">
+			* \date 9/15/2015 12:00:00 AM
+
+		</div><div style="background-color:#FAFAFA;">
+			*/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			INSTANTIATE_TEST_CASE_P
+
+		</div><div style="background-color:#FAFAFA;">
+			(
+
+		</div><div style="background-color:#FAFAFA;">
+			UnitDemo_function4_b_BoundaryTest_,
+
+		</div><div style="background-color:#FAFAFA;">
+			UnitDemo_function4_b_BoundaryFixture,
+
+		</div><div style="background-color:#FAFAFA;">
+			Combine
+
+		</div><div style="background-color:#FAFAFA;">
+			(
+
+		</div><div style="background-color:#FAFAFA;">
+			Values(getParamMin_0(),getParamMax_0()),Values(getParamMin_1(),getParamMax_1()),Values(getParamMin_2(),getParamMax_2())
+
+		</div><div style="background-color:#FAFAFA;">
+			)
+
+		</div><div style="background-color:#58FA58;">
+			);
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*! 
+
+		</div><div style="background-color:#FAFAFA;">
+			* \fn TEST
+
+		</div><div style="background-color:#FAFAFA;">
+			* Test case for Boundary testing Method UnitDemo_function4_b
+
+		</div><div style="background-color:#FAFAFA;">
+			* \author MMEMEA\F11786B
+
+		</div><div style="background-color:#FAFAFA;">
+			* \version 1.0
+
+		</div><div style="background-color:#FAFAFA;">
+			* \date 9/15/2015 12:00:00 AM
+
+		</div><div style="background-color:#FAFAFA;">
+			*/
+
+		</div><div style="background-color:#FAFAFA;">
+			/*********************************************************************/
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#58FA58;">
+			TEST_P(UnitDemo_function4_b_BoundaryFixture,UnitDemo_function4_b_Test)
+
+		</div><div style="background-color:#FAFAFA;">
+			{
+
+		</div><div style="background-color:#58FA58;">
+			EXPECT_EXIT
+
+		</div><div style="background-color:#FAFAFA;">
+			(
+
+		</div><div style="background-color:#FAFAFA;">
+			UnitDemo_function4_b(
+
+		</div><div style="background-color:#FAFAFA;">
+			std::tr1::get < 0 > (GetParam()),std::tr1::get < 1 > (GetParam()),std::tr1::get < 2 > (GetParam())
+
+		</div><div style="background-color:#FAFAFA;">
+			);exit(0),ExitedWithCode(0),""
+
+		</div><div style="background-color:#F5BCA9;">
+			);
+
+		</div><div style="background-color:#58FA58;">
+			}
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div>
+	</body>
+</html>

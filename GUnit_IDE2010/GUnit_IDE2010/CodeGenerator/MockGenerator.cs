@@ -136,7 +136,14 @@ namespace GUnit_IDE2010.CodeGenerator
                 {
                     writer.WriteLine(valueMember.member);
                     writer.WriteLine(valueMember.value);
-                    writer.WriteLine("EXPECT_CALL(l_MockObject,mocked_" + method.Methods.EntityName + "(" + parameters + ")).Times(AnyNumber().WillRepeatedly(::testing::Return("+ valueMember .memberVariable+ ");");
+                    writer.WriteLine("EXPECT_CALL");
+                    writer.WriteLine("(");
+                    writer.WriteLine("l_MockObject,");
+                    writer.WriteLine("mocked_" + method.Methods.EntityName + "(" + parameters + ")");
+                    writer.WriteLine(")");
+                    writer.WriteLine(".Times(::testing::AnyNumber())");
+                    writer.WriteLine(".WillRepeatedly(::testing::Return(" + valueMember.memberVariable + "));");
+                   
                 }
                 writer.WriteLine("    return l_MockObject.mocked_" + method.Methods.EntityName + "(" + parameters + ");");
                 writer.WriteLine("  }");

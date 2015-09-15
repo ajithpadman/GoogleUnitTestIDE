@@ -88,9 +88,9 @@ namespace GUnit_IDE2010.JobHandler
                     database.ProjectFiles.InsertOnSubmit(file);
                     database.SubmitChanges();
                 }
-                catch
+                catch (Exception err)
                 {
-
+                    MessageBox.Show(err.ToString());
                 }
             }
         }

@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<title title="UnitTestDemo.c.gcov">
+
+		</title>
+	</head><body>
+		<div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			
+
+		</div><div style="background-color:#FAFAFA;">
+			#include "UnitTestDemo.h"
+
+		</div><div style="background-color:#FAFAFA;">
+			#include "ExtModule.h"
+
+		</div><div style="background-color:#F5BCA9;">
+			void UnitDemo_function_v(void)
+
+		</div><div style="background-color:#FAFAFA;">
+			{
+
+		</div><div style="background-color:#F5BCA9;">
+			   printf("I am in Function UnitDemo_function_v\n");
+
+		</div><div style="background-color:#F5BCA9;">
+			   ExtModule_function_v();
+
+		</div><div style="background-color:#F5BCA9;">
+			}
+
+		</div><div style="background-color:#58FA58;">
+			void UnitDemo_function2_v(u8 l_u8value)
+
+		</div><div style="background-color:#FAFAFA;">
+			{
+
+		</div><div style="background-color:#58FA58;">
+			   printf("I am in Function UnitDemo_function2_v\n");
+
+		</div><div style="background-color:#58FA58;">
+			   ExtModule_function2_v(l_u8value);
+
+		</div><div style="background-color:#58FA58;">
+			}
+
+		</div><div style="background-color:#58FA58;">
+			u8 UnitDemo_function3_u8(u16 l_u16value,u32 l_u32Value)
+
+		</div><div style="background-color:#FAFAFA;">
+			{
+
+		</div><div style="background-color:#58FA58;">
+			   printf("I am in Function UnitDemo_function3_u8\n");
+
+		</div><div style="background-color:#58FA58;">
+			   return ExtModule_function3_u8(l_u16value,l_u32Value);
+
+		</div><div style="background-color:#FAFAFA;">
+			}
+
+		</div><div style="background-color:#58FA58;">
+			Boolean UnitDemo_function4_b(u16 *l_pu16Value,u32 l_u32Value,u32 * l_pu32Value)
+
+		</div><div style="background-color:#FAFAFA;">
+			{
+
+		</div><div style="background-color:#58FA58;">
+			   printf("I am in Function UnitDemo_function4_b\n");
+
+		</div><div style="background-color:#58FA58;">
+			   if(ExtModule_function4_b(l_pu16Value,l_u32Value,l_pu32Value) == TRUE)
+
+		</div><div style="background-color:#FAFAFA;">
+			   {
+
+		</div><div style="background-color:#F5BCA9;">
+			         UnitDemo_function_v();
+
+		</div><div style="background-color:#F5BCA9;">
+			         return TRUE;
+
+		</div><div style="background-color:#FAFAFA;">
+			   }
+
+		</div><div style="background-color:#FAFAFA;">
+			   else
+
+		</div><div style="background-color:#FAFAFA;">
+			   {
+
+		</div><div style="background-color:#58FA58;">
+			     return FALSE;
+
+		</div><div style="background-color:#FAFAFA;">
+			   }
+
+		</div><div style="background-color:#FAFAFA;">
+			}
+
+		</div>
+	</body>
+</html>

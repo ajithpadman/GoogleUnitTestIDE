@@ -381,11 +381,19 @@ namespace GUnit_IDE2010.CodeGenerator
             int i = 0;
             foreach (StructureFields fields in type.StructureFields)
             {
-                Member valuemember = null;
-                valuemember = DatatypeMinMember(fields.Variables.DataType, "Field_" + i);
-                writer.WriteLine(valuemember.member);
-                writer.WriteLine(valuemember.value);
-                writer.WriteLine(member.memberVariable + "." + fields.Variables.VariableName + " = " + valuemember.memberVariable + ";");
+                if (fields.Variables.TypeKind == (int)DataTypeKind.ArithmeticType)
+                {
+                    Member valuemember = new Member();
+                    valuemember.memberVariable = "Field_" + i;
+                    valuemember.member = "static " + fields.Variables.VariableType + " " + valuemember.memberVariable + " =  std::numeric_limits < " + fields.Variables.VariableType + " >::min();";
+                    writer.WriteLine(valuemember.member);
+                    writer.WriteLine(valuemember.value);
+                    writer.WriteLine(member.memberVariable + "." + fields.Variables.VariableName + " = " + valuemember.memberVariable + ";");
+
+                }
+                //Member valuemember = null;
+                //valuemember = DatatypeMinMember(fields.Variables.DataType, "Field_" + i);
+
                 i++;
             }
             member.value = writer.ToString();
@@ -409,11 +417,16 @@ namespace GUnit_IDE2010.CodeGenerator
             {
                 if (fields.AccessScope == (int)ClangSharp.AccessSpecifier.Public)
                 {
-                    Member valuemember = null;
-                    valuemember = DatatypeMinMember(fields.Variables.DataType, "Field_" + i);
-                    writer.WriteLine(valuemember.member);
-                    writer.WriteLine(valuemember.value);
-                    writer.WriteLine(member.memberVariable + "." + fields.Variables.VariableName + " = " + valuemember.memberVariable + ";");
+                    if (fields.Variables.TypeKind == (int)DataTypeKind.ArithmeticType)
+                    {
+                        Member valuemember = new Member();
+                        valuemember.memberVariable = "Field_" + i;
+                        valuemember.member = "static " + fields.Variables.VariableType + " " + valuemember.memberVariable + " =  std::numeric_limits < " + fields.Variables.VariableType + " >::min();";
+                        writer.WriteLine(valuemember.member);
+                        writer.WriteLine(valuemember.value);
+                        writer.WriteLine(member.memberVariable + "." + fields.Variables.VariableName + " = " + valuemember.memberVariable + ";");
+
+                    }
                 }
                 i++;
             }
@@ -436,11 +449,16 @@ namespace GUnit_IDE2010.CodeGenerator
             int i = 0;
             foreach (StructureFields fields in type.StructureFields)
             {
-                Member valuemember = null;
-                valuemember = DatatypeMaxMember(fields.Variables.DataType, "Field_" + i);
-                writer.WriteLine(valuemember.member);
-                writer.WriteLine(valuemember.value);
-                writer.WriteLine(member.memberVariable + "." + fields.Variables.VariableName + " = " + valuemember.memberVariable + ";");
+                if (fields.Variables.TypeKind == (int)DataTypeKind.ArithmeticType)
+                {
+                    Member valuemember = new Member();
+                    valuemember.memberVariable = "Field_" + i;
+                    valuemember.member = "static " + fields.Variables.VariableType + " " + valuemember.memberVariable + " =  std::numeric_limits < " + fields.Variables.VariableType + " >::max();";
+                    writer.WriteLine(valuemember.member);
+                    writer.WriteLine(valuemember.value);
+                    writer.WriteLine(member.memberVariable + "." + fields.Variables.VariableName + " = " + valuemember.memberVariable + ";");
+
+                }
                 i++;
             }
             member.value = writer.ToString();
@@ -464,11 +482,16 @@ namespace GUnit_IDE2010.CodeGenerator
             {
                 if (fields.AccessScope == (int)ClangSharp.AccessSpecifier.Public)
                 {
-                    Member valuemember = null;
-                    valuemember = DatatypeMaxMember(fields.Variables.DataType, "Field_" + i);
-                    writer.WriteLine(valuemember.member);
-                    writer.WriteLine(valuemember.value);
-                    writer.WriteLine(member.memberVariable + "." + fields.Variables.VariableName + " = " + valuemember.memberVariable + ";");
+                    if (fields.Variables.TypeKind == (int)DataTypeKind.ArithmeticType)
+                    {
+                        Member valuemember = new Member();
+                        valuemember.memberVariable = "Field_" + i;
+                        valuemember.member = "static " + fields.Variables.VariableType + " " + valuemember.memberVariable + " =  std::numeric_limits < " + fields.Variables.VariableType + " >::max();";
+                        writer.WriteLine(valuemember.member);
+                        writer.WriteLine(valuemember.value);
+                        writer.WriteLine(member.memberVariable + "." + fields.Variables.VariableName + " = " + valuemember.memberVariable + ";");
+
+                    }
                 }
                 i++;
             }

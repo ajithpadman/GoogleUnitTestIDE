@@ -1,0 +1,145 @@
+        -:    0:Source:D:/UnitTestDemo/GeneratedTests_UnitTestDemo/UnitDemo_function2_v_test.cpp
+        -:    0:Graph:UnitDemo_function2_v_test.gcno
+        -:    0:Data:UnitDemo_function2_v_test.gcda
+        -:    0:Runs:15
+        -:    0:Programs:1
+        -:    1:/*********************************************************************/
+        -:    2:/*! 
+        -:    3:* \file 
+        -:    4:* 
+        -:    5:* \author MMEMEA\F11786B
+        -:    6:* \version 1.0
+        -:    7:* \date 9/15/2015 12:00:00 AM
+        -:    8:*/
+        -:    9:/*********************************************************************/
+        -:   10:
+        -:   11:/*Header Files*/
+        -:   12:#include "gtest/gtest.h"
+        -:   13:#include "gmock/gmock.h"
+        -:   14:#include "tr1/tuple"
+        -:   15:#include "limits"
+        -:   16:/*Namespace References*/
+        -:   17:using ::testing::TestWithParam;
+        -:   18:using ::testing::Values;
+        -:   19:using ::testing::Combine;
+        -:   20:using ::testing::Bool;
+        -:   21:using ::testing::Range;
+        -:   22:using ::testing::ExitedWithCode;
+        -:   23:
+        -:   24:extern void UnitDemo_function2_v(u8);
+        -:   25:/*********************************************************************/
+        -:   26:/*! 
+        -:   27:*  \class UnitDemo_function2_v_BoundaryFixture
+        -:   28:* Boundary test Suit for method UnitDemo_function2_v
+        -:   29:* \author MMEMEA\F11786B
+        -:   30:* \version 1.0
+        -:   31:* \date 9/15/2015 12:00:00 AM
+        -:   32:*/
+        -:   33:/*********************************************************************/
+        -:   34:
+        6:   35:class UnitDemo_function2_v_BoundaryFixture:public TestWithParam<u8 >
+        -:   36:{
+        -:   37:public:
+        -:   38:/*********************************************************************/
+        -:   39:/*! 
+        -:   40:* \fn void SetUp()
+        -:   41:* Set up for each tests 
+        -:   42:* \author MMEMEA\F11786B
+        -:   43:* \version 1.0
+        -:   44:* \date 9/15/2015 12:00:00 AM
+        -:   45:*/
+        -:   46:/*********************************************************************/
+        -:   47:
+        4:   48:virtual void SetUp()
+        -:   49:{
+        4:   50:}
+        -:   51:/*********************************************************************/
+        -:   52:/*! 
+        -:   53:* \fn void TearDown()
+        -:   54:* Tear Down each tests 
+        -:   55:* \author MMEMEA\F11786B
+        -:   56:* \version 1.0
+        -:   57:* \date 9/15/2015 12:00:00 AM
+        -:   58:*/
+        -:   59:/*********************************************************************/
+        -:   60:
+        2:   61:virtual void TearDown()
+        -:   62:{
+        2:   63:}
+        -:   64:};
+        -:   65:/*********************************************************************/
+        -:   66:/*! 
+        -:   67:* \fn u8 getParamMax_0()
+        -:   68:* Get the maximum value for Parameter 0
+        -:   69:* \author MMEMEA\F11786B
+        -:   70:* \version 1.0
+        -:   71:* \date 9/15/2015 12:00:00 AM
+        -:   72:*/
+        -:   73:/*********************************************************************/
+        -:   74:
+       15:   75:static u8 getParamMax_0()
+        -:   76:{
+       15:   77:static unsigned char member_0_ActualType =  std::numeric_limits < unsigned char >::max();
+        -:   78:
+       15:   79:static u8 member_0 = member_0_ActualType;
+        -:   80:
+        -:   81:
+       15:   82:return member_0;
+        -:   83:}
+        -:   84:/*********************************************************************/
+        -:   85:/*! 
+        -:   86:* \fn u8 getParamMin_0()
+        -:   87:* Get the minimum value for Parameter 0
+        -:   88:* \author MMEMEA\F11786B
+        -:   89:* \version 1.0
+        -:   90:* \date 9/15/2015 12:00:00 AM
+        -:   91:*/
+        -:   92:/*********************************************************************/
+        -:   93:
+       15:   94:static u8 getParamMin_0()
+        -:   95:{
+       15:   96:static unsigned char member_0_ActualType =  std::numeric_limits < unsigned char >::min();
+        -:   97:
+       15:   98:static u8 member_0 = member_0_ActualType;
+        -:   99:
+        -:  100:
+       15:  101:return member_0;
+        -:  102:}
+        -:  103:/*********************************************************************/
+        -:  104:/*! 
+        -:  105:* \fn INSTANTIATE_TEST_CASE_P
+        -:  106:* Instantiate the Test value Fixture 
+        -:  107:* \author MMEMEA\F11786B
+        -:  108:* \version 1.0
+        -:  109:* \date 9/15/2015 12:00:00 AM
+        -:  110:*/
+        -:  111:/*********************************************************************/
+        -:  112:
+       45:  113:INSTANTIATE_TEST_CASE_P
+        -:  114:(
+        -:  115:UnitDemo_function2_v_BoundaryTest_,
+        -:  116:UnitDemo_function2_v_BoundaryFixture,
+        -:  117:Values(getParamMin_0(),getParamMax_0())
+       30:  118:);
+        -:  119:/*********************************************************************/
+        -:  120:/*! 
+        -:  121:* \fn TEST
+        -:  122:* Test case for Boundary testing Method UnitDemo_function2_v
+        -:  123:* \author MMEMEA\F11786B
+        -:  124:* \version 1.0
+        -:  125:* \date 9/15/2015 12:00:00 AM
+        -:  126:*/
+        -:  127:/*********************************************************************/
+        -:  128:
+       42:  129:TEST_P(UnitDemo_function2_v_BoundaryFixture,UnitDemo_function2_v_Test)
+        -:  130:{
+        4:  131:EXPECT_EXIT
+        -:  132:(
+        -:  133:UnitDemo_function2_v(
+        -:  134:GetParam()
+        -:  135:);exit(0),ExitedWithCode(0),""
+    #####:  136:);
+       47:  137:}
+        -:  138:
+        -:  139:
+        -:  140:

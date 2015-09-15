@@ -44,7 +44,7 @@ namespace Gunit.DataModel
     public class ProjectDataModel : DataModelBase,IDisposable
     {
         #region members
-        public const string CurrentDBVersion = "V1.9";
+        public const string CurrentDBVersion = "V2.0";
         public string m_DBVersion = "";
         private string m_DBPath = "";
         private string m_projectName = "";
@@ -348,11 +348,7 @@ namespace Gunit.DataModel
             base.Datamodel_closeProject();
             ProjectDataModel_resetData();
         }
-        public override void Datamodel_newProject()
-        {
-            base.Datamodel_newProject();
-            ProjectDataModel_resetData();
-        }
+      
        
         /// <summary>
         /// 

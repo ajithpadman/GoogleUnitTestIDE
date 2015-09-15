@@ -1,0 +1,431 @@
+        -:    0:Source:c:/mingw/lib/gcc/mingw32/4.7.1/include/c++/tr1/tuple
+        -:    0:Graph:UnitDemo_function4_b_test.gcno
+        -:    0:Data:UnitDemo_function4_b_test.gcda
+        -:    0:Runs:15
+        -:    0:Programs:1
+        -:    1:// class template tuple -*- C++ -*-
+        -:    2:
+        -:    3:// Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+        -:    4://
+        -:    5:// This file is part of the GNU ISO C++ Library.  This library is free
+        -:    6:// software; you can redistribute it and/or modify it under the
+        -:    7:// terms of the GNU General Public License as published by the
+        -:    8:// Free Software Foundation; either version 3, or (at your option)
+        -:    9:// any later version.
+        -:   10:
+        -:   11:// This library is distributed in the hope that it will be useful,
+        -:   12:// but WITHOUT ANY WARRANTY; without even the implied warranty of
+        -:   13:// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        -:   14:// GNU General Public License for more details.
+        -:   15:
+        -:   16:// Under Section 7 of GPL version 3, you are granted additional
+        -:   17:// permissions described in the GCC Runtime Library Exception, version
+        -:   18:// 3.1, as published by the Free Software Foundation.
+        -:   19:
+        -:   20:// You should have received a copy of the GNU General Public License and
+        -:   21:// a copy of the GCC Runtime Library Exception along with this program;
+        -:   22:// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+        -:   23:// <http://www.gnu.org/licenses/>.
+        -:   24:
+        -:   25:/** @file tr1/tuple
+        -:   26:*  This is a TR1 C++ Library header.
+        -:   27:*/
+        -:   28:
+        -:   29:// Chris Jefferson <chris@bubblescope.net>
+        -:   30:// Variadic Templates support by Douglas Gregor <doug.gregor@gmail.com>
+        -:   31:
+        -:   32:#ifndef _GLIBCXX_TR1_TUPLE
+        -:   33:#define _GLIBCXX_TR1_TUPLE 1
+        -:   34:
+        -:   35:#pragma GCC system_header
+        -:   36:
+        -:   37:#include <utility>
+        -:   38:
+        -:   39:namespace std _GLIBCXX_VISIBILITY(default)
+        -:   40:{
+        -:   41:namespace tr1
+        -:   42:{
+        -:   43:_GLIBCXX_BEGIN_NAMESPACE_VERSION
+        -:   44:
+        -:   45:  // Adds a const reference to a non-reference type.
+        -:   46:  template<typename _Tp>
+        -:   47:    struct __add_c_ref
+        -:   48:    { typedef const _Tp& type; };
+        -:   49:
+        -:   50:  template<typename _Tp>
+        -:   51:    struct __add_c_ref<_Tp&>
+        -:   52:    { typedef _Tp& type; };
+        -:   53:
+        -:   54:  // Adds a reference to a non-reference type.
+        -:   55:  template<typename _Tp>
+        -:   56:    struct __add_ref
+        -:   57:    { typedef _Tp& type; };
+        -:   58:
+        -:   59:  template<typename _Tp>
+        -:   60:    struct __add_ref<_Tp&>
+        -:   61:    { typedef _Tp& type; };
+        -:   62:
+        -:   63:  /**
+        -:   64:   * Contains the actual implementation of the @c tuple template, stored
+        -:   65:   * as a recursive inheritance hierarchy from the first element (most
+        -:   66:   * derived class) to the last (least derived class). The @c Idx
+        -:   67:   * parameter gives the 0-based index of the element stored at this
+        -:   68:   * point in the hierarchy; we use it to implement a constant-time
+        -:   69:   * get() operation.
+        -:   70:   */
+        -:   71:  template<int _Idx, typename... _Elements>
+        -:   72:    struct _Tuple_impl; 
+        -:   73:
+        -:   74:  /**
+        -:   75:   * Zero-element tuple implementation. This is the basis case for the 
+        -:   76:   * inheritance recursion.
+        -:   77:   */
+        -:   78:  template<int _Idx>
+        -:   79:    struct _Tuple_impl<_Idx> { };
+        -:   80:
+        -:   81:  /**
+        -:   82:   * Recursive tuple implementation. Here we store the @c Head element
+        -:   83:   * and derive from a @c Tuple_impl containing the remaining elements
+        -:   84:   * (which contains the @c Tail).
+        -:   85:   */
+        -:   86:  template<int _Idx, typename _Head, typename... _Tail>
+        -:   87:    struct _Tuple_impl<_Idx, _Head, _Tail...>
+        -:   88:    : public _Tuple_impl<_Idx + 1, _Tail...>
+        -:   89:    {
+        -:   90:      typedef _Tuple_impl<_Idx + 1, _Tail...> _Inherited;
+        -:   91:      
+        -:   92:      _Head _M_head;
+        -:   93:      
+      360:   94:      _Inherited&       _M_tail()       { return *this; }
+     1440:   95:      const _Inherited& _M_tail() const { return *this; }
+        -:   96:      
+      450:   97:      _Tuple_impl() : _Inherited(), _M_head() { }
+        -:   98:      
+        -:   99:      explicit 
+    #####:  100:      _Tuple_impl(typename __add_c_ref<_Head>::type __head,
+        -:  101:		  typename __add_c_ref<_Tail>::type... __tail)
+    #####:  102:      : _Inherited(__tail...), _M_head(__head) { }
+        -:  103:
+        -:  104:      template<typename... _UElements>
+        -:  105:      _Tuple_impl(const _Tuple_impl<_Idx, _UElements...>& __in)
+        -:  106:      : _Inherited(__in._M_tail()), _M_head(__in._M_head) { }
+        -:  107:
+     1080:  108:      _Tuple_impl(const _Tuple_impl& __in)
+     1080:  109:      : _Inherited(__in._M_tail()), _M_head(__in._M_head) { }
+        -:  110:     
+        -:  111:      template<typename... _UElements>
+        -:  112:        _Tuple_impl&
+        -:  113:        operator=(const _Tuple_impl<_Idx, _UElements...>& __in)
+        -:  114:        {
+        -:  115:	  _M_head = __in._M_head;
+        -:  116:	  _M_tail() = __in._M_tail();
+        -:  117:	  return *this;
+        -:  118:	}
+        -:  119:
+        -:  120:      _Tuple_impl&
+      360:  121:      operator=(const _Tuple_impl& __in)
+        -:  122:      {
+      360:  123:	_M_head = __in._M_head;
+      360:  124:	_M_tail() = __in._M_tail();
+      360:  125:	return *this;
+        -:  126:      }
+        -:  127:    };
+        -:  128:
+        -:  129:  template<typename... _Elements> 
+        -:  130:    class tuple : public _Tuple_impl<0, _Elements...>
+        -:  131:    {
+        -:  132:      typedef _Tuple_impl<0, _Elements...> _Inherited;
+        -:  133:
+        -:  134:    public:
+      150:  135:      tuple() : _Inherited() { }
+        -:  136:
+        -:  137:      explicit
+    #####:  138:      tuple(typename __add_c_ref<_Elements>::type... __elements)
+    #####:  139:      : _Inherited(__elements...) { }
+        -:  140:
+        -:  141:      template<typename... _UElements>
+        -:  142:        tuple(const tuple<_UElements...>& __in)
+        -:  143:	: _Inherited(__in) { }
+        -:  144:
+      360:  145:      tuple(const tuple& __in)
+      360:  146:      : _Inherited(__in) { }
+        -:  147:
+        -:  148:      template<typename... _UElements>
+        -:  149:        tuple&
+        -:  150:        operator=(const tuple<_UElements...>& __in)
+        -:  151:        {
+        -:  152:	  static_cast<_Inherited&>(*this) = __in;
+        -:  153:	  return *this;
+        -:  154:	}
+        -:  155:
+        -:  156:      tuple&
+      120:  157:      operator=(const tuple& __in)
+        -:  158:      {
+      120:  159:	static_cast<_Inherited&>(*this) = __in;
+      120:  160:	return *this;
+        -:  161:      }
+        -:  162:    };
+        -:  163:
+        -:  164:  template<> class tuple<> { };
+        -:  165:
+        -:  166:  // 2-element tuple, with construction and assignment from a pair.
+        -:  167:  template<typename _T1, typename _T2>
+        -:  168:    class tuple<_T1, _T2> : public _Tuple_impl<0, _T1, _T2>
+        -:  169:    {
+        -:  170:      typedef _Tuple_impl<0, _T1, _T2> _Inherited;
+        -:  171:
+        -:  172:    public:
+        -:  173:      tuple() : _Inherited() { }
+        -:  174:
+        -:  175:      explicit
+        -:  176:      tuple(typename __add_c_ref<_T1>::type __a1,
+        -:  177:	    typename __add_c_ref<_T2>::type __a2)
+        -:  178:      : _Inherited(__a1, __a2) { }
+        -:  179:
+        -:  180:      template<typename _U1, typename _U2>
+        -:  181:        tuple(const tuple<_U1, _U2>& __in)
+        -:  182:	: _Inherited(__in) { }
+        -:  183:
+        -:  184:      tuple(const tuple& __in)
+        -:  185:      : _Inherited(__in) { }
+        -:  186:
+        -:  187:      template<typename _U1, typename _U2>
+        -:  188:        tuple(const pair<_U1, _U2>& __in)
+        -:  189:	: _Inherited(_Tuple_impl<0, 
+        -:  190:		     typename __add_c_ref<_U1>::type,
+        -:  191:		     typename __add_c_ref<_U2>::type>(__in.first, 
+        -:  192:						      __in.second))
+        -:  193:        { }
+        -:  194:  
+        -:  195:      template<typename _U1, typename _U2>
+        -:  196:        tuple&
+        -:  197:        operator=(const tuple<_U1, _U2>& __in)
+        -:  198:        {
+        -:  199:	  static_cast<_Inherited&>(*this) = __in;
+        -:  200:	  return *this;
+        -:  201:	}
+        -:  202:
+        -:  203:      tuple&
+        -:  204:      operator=(const tuple& __in)
+        -:  205:      {
+        -:  206:	static_cast<_Inherited&>(*this) = __in;
+        -:  207:	return *this;
+        -:  208:      }
+        -:  209:
+        -:  210:      template<typename _U1, typename _U2>
+        -:  211:        tuple&
+        -:  212:        operator=(const pair<_U1, _U2>& __in)
+        -:  213:        {
+        -:  214:	  this->_M_head = __in.first;
+        -:  215:	  this->_M_tail()._M_head = __in.second;
+        -:  216:	  return *this;
+        -:  217:	}
+        -:  218:    };
+        -:  219:
+        -:  220:  
+        -:  221:  /// Gives the type of the ith element of a given tuple type.
+        -:  222:  template<int __i, typename _Tp>
+        -:  223:    struct tuple_element;
+        -:  224:
+        -:  225:  /**
+        -:  226:   * Recursive case for tuple_element: strip off the first element in
+        -:  227:   * the tuple and retrieve the (i-1)th element of the remaining tuple.
+        -:  228:   */
+        -:  229:  template<int __i, typename _Head, typename... _Tail>
+        -:  230:    struct tuple_element<__i, tuple<_Head, _Tail...> >
+        -:  231:    : tuple_element<__i - 1, tuple<_Tail...> > { };
+        -:  232:
+        -:  233:  /**
+        -:  234:   * Basis case for tuple_element: The first element is the one we're seeking.
+        -:  235:   */
+        -:  236:  template<typename _Head, typename... _Tail>
+        -:  237:    struct tuple_element<0, tuple<_Head, _Tail...> >
+        -:  238:    {
+        -:  239:      typedef _Head type;
+        -:  240:    };
+        -:  241:
+        -:  242:  /// Finds the size of a given tuple type.
+        -:  243:  template<typename _Tp>
+        -:  244:    struct tuple_size;
+        -:  245:
+        -:  246:  /// class tuple_size
+        -:  247:  template<typename... _Elements>
+        -:  248:    struct tuple_size<tuple<_Elements...> >
+        -:  249:    {
+        -:  250:      static const int value = sizeof...(_Elements);
+        -:  251:    };
+        -:  252:
+        -:  253:  template<typename... _Elements>
+        -:  254:    const int tuple_size<tuple<_Elements...> >::value;
+        -:  255:
+        -:  256:  template<int __i, typename _Head, typename... _Tail>
+        -:  257:    inline typename __add_ref<_Head>::type
+        -:  258:    __get_helper(_Tuple_impl<__i, _Head, _Tail...>& __t)
+        -:  259:    {
+        -:  260:      return __t._M_head;
+        -:  261:    }
+        -:  262:
+        -:  263:  template<int __i, typename _Head, typename... _Tail>
+        -:  264:    inline typename __add_c_ref<_Head>::type
+    #####:  265:    __get_helper(const _Tuple_impl<__i, _Head, _Tail...>& __t)
+        -:  266:    {
+    #####:  267:      return __t._M_head;
+        -:  268:    }
+        -:  269:
+        -:  270:  // Return a reference (const reference) to the ith element of a tuple.
+        -:  271:  // Any const or non-const ref elements are returned with their original type.
+        -:  272:  template<int __i, typename... _Elements>
+        -:  273:    inline typename __add_ref<
+        -:  274:                      typename tuple_element<__i, tuple<_Elements...> >::type
+        -:  275:                    >::type
+        -:  276:    get(tuple<_Elements...>& __t)
+        -:  277:    { 
+        -:  278:      return __get_helper<__i>(__t); 
+        -:  279:    }
+        -:  280:
+        -:  281:  template<int __i, typename... _Elements>
+        -:  282:    inline typename __add_c_ref<
+        -:  283:                      typename tuple_element<__i, tuple<_Elements...> >::type
+        -:  284:                    >::type
+    #####:  285:    get(const tuple<_Elements...>& __t)
+        -:  286:    {
+    #####:  287:      return __get_helper<__i>(__t);
+        -:  288:    }
+        -:  289:
+        -:  290:  // This class helps construct the various comparison operations on tuples
+        -:  291:  template<int __check_equal_size, int __i, int __j,
+        -:  292:	   typename _Tp, typename _Up>
+        -:  293:    struct __tuple_compare;
+        -:  294:
+        -:  295:  template<int __i, int __j, typename _Tp, typename _Up>
+        -:  296:    struct __tuple_compare<0, __i, __j, _Tp, _Up>
+        -:  297:    {
+        -:  298:      static bool __eq(const _Tp& __t, const _Up& __u)
+        -:  299:      {
+        -:  300:	return (get<__i>(__t) == get<__i>(__u) &&
+        -:  301:		__tuple_compare<0, __i+1, __j, _Tp, _Up>::__eq(__t, __u));
+        -:  302:      }
+        -:  303:     
+        -:  304:      static bool __less(const _Tp& __t, const _Up& __u)
+        -:  305:      {
+        -:  306:	return ((get<__i>(__t) < get<__i>(__u))
+        -:  307:		|| !(get<__i>(__u) < get<__i>(__t)) &&
+        -:  308:		__tuple_compare<0, __i+1, __j, _Tp, _Up>::__less(__t, __u));
+        -:  309:      }
+        -:  310:    };
+        -:  311:
+        -:  312:  template<int __i, typename _Tp, typename _Up>
+        -:  313:    struct __tuple_compare<0, __i, __i, _Tp, _Up>
+        -:  314:    {
+        -:  315:      static bool __eq(const _Tp&, const _Up&)
+        -:  316:      { return true; }
+        -:  317:     
+        -:  318:      static bool __less(const _Tp&, const _Up&)
+        -:  319:      { return false; }
+        -:  320:    };
+        -:  321:
+        -:  322:  template<typename... _TElements, typename... _UElements>
+        -:  323:    bool
+        -:  324:    operator==(const tuple<_TElements...>& __t,
+        -:  325:	       const tuple<_UElements...>& __u)
+        -:  326:    {
+        -:  327:      typedef tuple<_TElements...> _Tp;
+        -:  328:      typedef tuple<_UElements...> _Up;
+        -:  329:      return (__tuple_compare<tuple_size<_Tp>::value - tuple_size<_Up>::value,
+        -:  330:	      0, tuple_size<_Tp>::value, _Tp, _Up>::__eq(__t, __u));
+        -:  331:    }
+        -:  332:
+        -:  333:  template<typename... _TElements, typename... _UElements>
+        -:  334:    bool
+        -:  335:    operator<(const tuple<_TElements...>& __t,
+        -:  336:	      const tuple<_UElements...>& __u)
+        -:  337:    {
+        -:  338:      typedef tuple<_TElements...> _Tp;
+        -:  339:      typedef tuple<_UElements...> _Up;
+        -:  340:      return (__tuple_compare<tuple_size<_Tp>::value - tuple_size<_Up>::value,
+        -:  341:	      0, tuple_size<_Tp>::value, _Tp, _Up>::__less(__t, __u));
+        -:  342:    }
+        -:  343:
+        -:  344:  template<typename... _TElements, typename... _UElements>
+        -:  345:    inline bool
+        -:  346:    operator!=(const tuple<_TElements...>& __t,
+        -:  347:	       const tuple<_UElements...>& __u)
+        -:  348:    { return !(__t == __u); }
+        -:  349:
+        -:  350:  template<typename... _TElements, typename... _UElements>
+        -:  351:    inline bool
+        -:  352:    operator>(const tuple<_TElements...>& __t,
+        -:  353:	      const tuple<_UElements...>& __u)
+        -:  354:    { return __u < __t; }
+        -:  355:
+        -:  356:  template<typename... _TElements, typename... _UElements>
+        -:  357:    inline bool
+        -:  358:    operator<=(const tuple<_TElements...>& __t,
+        -:  359:	       const tuple<_UElements...>& __u)
+        -:  360:    { return !(__u < __t); }
+        -:  361:
+        -:  362:  template<typename... _TElements, typename... _UElements>
+        -:  363:    inline bool
+        -:  364:    operator>=(const tuple<_TElements...>& __t,
+        -:  365:	       const tuple<_UElements...>& __u)
+        -:  366:    { return !(__t < __u); }
+        -:  367:
+        -:  368:  template<typename _Tp>
+        -:  369:    class reference_wrapper;
+        -:  370:
+        -:  371:  // Helper which adds a reference to a type when given a reference_wrapper
+        -:  372:  template<typename _Tp>
+        -:  373:    struct __strip_reference_wrapper
+        -:  374:    {
+        -:  375:      typedef _Tp __type;
+        -:  376:    };
+        -:  377:
+        -:  378:  template<typename _Tp>
+        -:  379:    struct __strip_reference_wrapper<reference_wrapper<_Tp> >
+        -:  380:    {
+        -:  381:      typedef _Tp& __type;
+        -:  382:    };
+        -:  383:
+        -:  384:  template<typename _Tp>
+        -:  385:    struct __strip_reference_wrapper<const reference_wrapper<_Tp> >
+        -:  386:    {
+        -:  387:      typedef _Tp& __type;
+        -:  388:    };
+        -:  389:
+        -:  390:  template<typename... _Elements>
+        -:  391:    inline tuple<typename __strip_reference_wrapper<_Elements>::__type...>
+        -:  392:    make_tuple(_Elements... __args)
+        -:  393:    {
+        -:  394:      typedef tuple<typename __strip_reference_wrapper<_Elements>::__type...>
+        -:  395:        __result_type;
+        -:  396:      return __result_type(__args...);
+        -:  397:    }
+        -:  398:
+        -:  399:  template<typename... _Elements>
+        -:  400:    inline tuple<_Elements&...>
+        -:  401:    tie(_Elements&... __args)
+        -:  402:    {
+        -:  403:      return tuple<_Elements&...>(__args...);
+        -:  404:    }
+        -:  405:
+        -:  406:  // A class (and instance) which can be used in 'tie' when an element
+        -:  407:  // of a tuple is not required
+        -:  408:  struct _Swallow_assign
+        -:  409:  {
+        -:  410:    template<class _Tp>
+        -:  411:      _Swallow_assign&
+        -:  412:      operator=(const _Tp&)
+        -:  413:      { return *this; }
+        -:  414:  };
+        -:  415:
+        -:  416:  // TODO: Put this in some kind of shared file.
+        -:  417:  namespace
+        -:  418:  {
+        -:  419:    _Swallow_assign ignore;
+        -:  420:  }; // anonymous namespace
+        -:  421:
+        -:  422:_GLIBCXX_END_NAMESPACE_VERSION
+        -:  423:}
+        -:  424:}
+        -:  425:
+        -:  426:#endif // _GLIBCXX_TR1_TUPLE

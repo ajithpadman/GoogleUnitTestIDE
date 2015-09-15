@@ -34,6 +34,7 @@ namespace GUnit_IDE2010.CodeGenerator
         protected override string WriteCodeBody()
         {
             StringWriter writer = new StringWriter();
+            string ownerClass = "";
             if (IsBoundaryTestAllowed(((TestGeneratorModel)(m_model)).Method))
             {
                 if (((TestGeneratorModel)(m_model)).Method.Arguments.Count() > 0)
@@ -47,6 +48,7 @@ namespace GUnit_IDE2010.CodeGenerator
                     if (((TestGeneratorModel)(m_model)).Method.MemberMethods.Count() > 0)
                     {
                         mode = TestGenMode.MemberMethod;
+                        ownerClass = ((TestGeneratorModel)(m_model)).Method.MemberMethods[0].Classes.EntityName;
                     }
                     if(mode == TestGenMode.GlobalMethod)
                     {
@@ -132,7 +134,15 @@ namespace GUnit_IDE2010.CodeGenerator
                     
                     writer.WriteLine( "EXPECT_EXIT");
                     writer.WriteLine( "(");
-                    writer.WriteLine( MethodName + "(");
+                    if (mode == TestGenMode.MemberMethod)
+                    {
+                        writer.WriteLine(ownerClass+" object;");
+                        writer.WriteLine("object." + MethodName + "(");
+                    }
+                    else
+                    {
+                        writer.WriteLine(MethodName + "(");
+                    }
                     if (((TestGeneratorModel)(m_model)).Method.Arguments.Count() > 1)
                     {
                         ListofStrings parameter = new ListofStrings();

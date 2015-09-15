@@ -1,0 +1,116 @@
+        -:    0:Source:D:/UnitTestDemo/UnitTestDemo_Mocks/Mock_DemoMock.cpp
+        -:    0:Graph:Mock_DemoMock.gcno
+        -:    0:Data:Mock_DemoMock.gcda
+        -:    0:Runs:15
+        -:    0:Programs:1
+        -:    1:/*********************************************************************/
+        -:    2:/*! 
+        -:    3:* \file Mock_DemoMock.cpp
+        -:    4:* 
+        -:    5:* \author MMEMEA\F11786B
+        -:    6:* \version 1.0
+        -:    7:* \date 9/15/2015 12:00:00 AM
+        -:    8:*/
+        -:    9:/*********************************************************************/
+        -:   10:
+        -:   11:#include "Mock_DemoMock.h"
+        -:   12:Mock_DemoMock* Mock_DemoMock::mp_Instance = 0;
+        -:   13:/*********************************************************************/
+        -:   14:/*! 
+        -:   15:*  \class Mock_DemoMock
+        -:   16:* Mock class for the module DemoMock
+        -:   17:* \author MMEMEA\F11786B
+        -:   18:* \version 1.0
+        -:   19:* \date 9/15/2015 12:00:00 AM
+        -:   20:*/
+        -:   21:/*********************************************************************/
+        -:   22:
+        -:   23:/*********************************************************************/
+        -:   24:/*! \fn ExtModule_function_v
+        -:   25:* \brief Mock for the function ExtModule_function_v()
+        -:   26:*/
+        -:   27:/*********************************************************************/
+    #####:   28:void ExtModule_function_v()
+        -:   29:{
+    #####:   30:  if(NULL != Mock_DemoMock::mp_Instance)
+        -:   31:  {
+    #####:   32:     Mock_DemoMock::mp_Instance->mocked_ExtModule_function_v();
+        -:   33:  }
+        -:   34:  else
+        -:   35:  {
+    #####:   36:    Mock_DemoMock l_MockObject;
+    #####:   37:      l_MockObject.mocked_ExtModule_function_v();
+        -:   38:  }
+    #####:   39:}
+        -:   40:/*********************************************************************/
+        -:   41:/*! \fn ExtModule_function2_v
+        -:   42:* \brief Mock for the function ExtModule_function2_v()
+        -:   43:*/
+        -:   44:/*********************************************************************/
+        2:   45:void ExtModule_function2_v(u8 l_arg0){
+        2:   46:  if(NULL != Mock_DemoMock::mp_Instance)
+        -:   47:  {
+    #####:   48:     Mock_DemoMock::mp_Instance->mocked_ExtModule_function2_v( l_arg0);
+        -:   49:  }
+        -:   50:  else
+        -:   51:  {
+        2:   52:    Mock_DemoMock l_MockObject;
+        2:   53:      l_MockObject.mocked_ExtModule_function2_v( l_arg0);
+        -:   54:  }
+        2:   55:}
+        -:   56:/*********************************************************************/
+        -:   57:/*! \fn ExtModule_function3_u8
+        -:   58:* \brief Mock for the function ExtModule_function3_u8()
+        -:   59:*/
+        -:   60:/*********************************************************************/
+        4:   61:u8 ExtModule_function3_u8(u16 l_arg0,u32 l_arg1){
+        4:   62:  if(NULL != Mock_DemoMock::mp_Instance)
+        -:   63:  {
+    #####:   64:    return Mock_DemoMock::mp_Instance->mocked_ExtModule_function3_u8( l_arg0, l_arg1);
+        -:   65:  }
+        -:   66:  else
+        -:   67:  {
+        4:   68:    Mock_DemoMock l_MockObject;
+        4:   69:static unsigned char Mock_DemoMockRetVal_ActualType =  std::numeric_limits < unsigned char >::min();
+        -:   70:
+        4:   71:static u8 Mock_DemoMockRetVal = Mock_DemoMockRetVal_ActualType;
+        -:   72:
+        -:   73:
+        8:   74:EXPECT_CALL
+        -:   75:(
+        -:   76:l_MockObject,
+        -:   77:mocked_ExtModule_function3_u8( l_arg0, l_arg1)
+        -:   78:)
+       12:   79:.Times(::testing::AnyNumber())
+       12:   80:.WillRepeatedly(::testing::Return(Mock_DemoMockRetVal));
+        4:   81:    return l_MockObject.mocked_ExtModule_function3_u8( l_arg0, l_arg1);
+        -:   82:  }
+        -:   83:}
+        -:   84:/*********************************************************************/
+        -:   85:/*! \fn ExtModule_function4_b
+        -:   86:* \brief Mock for the function ExtModule_function4_b()
+        -:   87:*/
+        -:   88:/*********************************************************************/
+        8:   89:Boolean ExtModule_function4_b(u16 * l_arg0,u32 l_arg1,u32 * l_arg2){
+        8:   90:  if(NULL != Mock_DemoMock::mp_Instance)
+        -:   91:  {
+    #####:   92:    return Mock_DemoMock::mp_Instance->mocked_ExtModule_function4_b( l_arg0, l_arg1, l_arg2);
+        -:   93:  }
+        -:   94:  else
+        -:   95:  {
+        8:   96:    Mock_DemoMock l_MockObject;
+        8:   97:static unsigned char Mock_DemoMockRetVal_ActualType =  std::numeric_limits < unsigned char >::min();
+        -:   98:
+        8:   99:static Boolean Mock_DemoMockRetVal = Mock_DemoMockRetVal_ActualType;
+        -:  100:
+        -:  101:
+       16:  102:EXPECT_CALL
+        -:  103:(
+        -:  104:l_MockObject,
+        -:  105:mocked_ExtModule_function4_b( l_arg0, l_arg1, l_arg2)
+        -:  106:)
+       24:  107:.Times(::testing::AnyNumber())
+       24:  108:.WillRepeatedly(::testing::Return(Mock_DemoMockRetVal));
+        8:  109:    return l_MockObject.mocked_ExtModule_function4_b( l_arg0, l_arg1, l_arg2);
+        -:  110:  }
+       45:  111:}

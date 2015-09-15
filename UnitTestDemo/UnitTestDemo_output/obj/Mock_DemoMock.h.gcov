@@ -1,0 +1,31 @@
+        -:    0:Source:D:/UnitTestDemo/UnitTestDemo_Mocks/Mock_DemoMock.h
+        -:    0:Graph:Mock_DemoMock.gcno
+        -:    0:Data:Mock_DemoMock.gcda
+        -:    0:Runs:15
+        -:    0:Programs:1
+        -:    1:/*********************************************************************/
+        -:    2:/*! 
+        -:    3:* \file Mock_DemoMock.h
+        -:    4:* 
+        -:    5:* \author MMEMEA\F11786B
+        -:    6:* \version 1.0
+        -:    7:* \date 9/15/2015 12:00:00 AM
+        -:    8:*/
+        -:    9:/*********************************************************************/
+        -:   10:
+        -:   11:#ifndef MOCK_DEMOMOCK
+        -:   12:#define MOCK_DEMOMOCK
+        -:   13:#include "gmock/gmock.h"
+        -:   14:class Mock_DemoMock{
+        -:   15:public:
+        -:   16: static Mock_DemoMock *mp_Instance;
+       14:   17: Mock_DemoMock(){mp_Instance = NULL;}
+       14:   18: virtual~Mock_DemoMock(){}
+        -:   19: inline void RegisterMock(Mock_DemoMock *mock){mp_Instance = mock;}
+        -:   20: inline void UnRegisterMock(){mp_Instance = NULL;}
+    #####:   21: MOCK_METHOD0(mocked_ExtModule_function_v,void());
+        2:   22: MOCK_METHOD1(mocked_ExtModule_function2_v,void(u8));
+        8:   23: MOCK_METHOD2(mocked_ExtModule_function3_u8,u8(u16,u32));
+       16:   24: MOCK_METHOD3(mocked_ExtModule_function4_b,Boolean(u16 *,u32,u32 *));
+        -:   25:};
+        -:   26:#endif
