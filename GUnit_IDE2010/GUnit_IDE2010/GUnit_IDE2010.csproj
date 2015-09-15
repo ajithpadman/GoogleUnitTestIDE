@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F3458C5F-7B29-40E5-A985-DFC084117F02}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GUnit_IDE2010</RootNamespace>
+    <AssemblyName>GUnit_IDE2010</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>F:\Gunit_Install\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>GUnit</ProductName>
+    <PublisherName>Google Test IDE</PublisherName>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>5084B6C98495317B12C3AD0C56BF1F0F6E2B570C</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GUnit_IDE2010_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClangSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dlls\ClangSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ScintillaNET">
+      <HintPath>dlls\ScintillaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.50, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe.Entity, Version=3.5.1.50, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\System.Data.SqlServerCe.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>dlls\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CodeGenerator\BoundaryTestGenerator.cs" />
+    <Compile Include="CodeGenerator\BoundaryValueGenerator.cs" />
+    <Compile Include="CodeGenerator\CodeGenBase.cs" />
+    <Compile Include="CodeGenerator\CodeWriter.cs" />
+    <Compile Include="CodeGenerator\MethodParamFixtureBuilder.cs" />
+    <Compile Include="CodeGenerator\MockGenerator.cs" />
+    <Compile Include="CodeGenerator\PremakeScriptBuilder.cs" />
+    <Compile Include="CodeGenerator\TestGenerator.cs" />
+    <Compile Include="Controller\ConsoleController.cs" />
+    <Compile Include="DataModel\CodeGenDataModel.cs" />
+    <Compile Include="DataModel\TestGeneratorModel.cs" />
+    <Compile Include="DataModel\Tree.cs" />
+    <Compile Include="HTML_Creator\GenerateCoverageReport.cs" />
+    <Compile Include="JobHandler\CoverageAnalyser.cs" />
+    <Compile Include="JobHandler\GCovParserJobHandler.cs" />
+    <Compile Include="GunitParser\ParserManager.cs" />
+    <Compile Include="JobHandler\ConsoleManager.cs" />
+    <Compile Include="Controller\Documentcontroller.cs" />
+    <Compile Include="Controller\DocumentMgrController.cs" />
+    <Compile Include="Controller\OutlineUiController.cs" />
+    <Compile Include="Controller\HTMLBrowserController.cs" />
+    <Compile Include="Controller\ProjectUiController.cs" />
+    <Compile Include="Controller\SideBarControllerBase.cs" />
+    <Compile Include="DataBase\DataBaseInterface.cs" />
+    <Compile Include="DataBase\GunitDB.cs" />
+    <Compile Include="DataBase\GUnitDB_Extension.cs" />
+    <Compile Include="DataModel\CodeLocation.cs" />
+    <Compile Include="DataModel\ConsoleDataModel.cs" />
+    <Compile Include="DataModel\DataModelBase.cs" />
+    <Compile Include="DataModel\DBManager.cs" />
+    <Compile Include="DataModel\DocumentDataModel.cs" />
+    <Compile Include="DataModel\DocumentMgrDataModel.cs" />
+    <Compile Include="DataModel\OutlineDataModel.cs" />
+    <Compile Include="DataModel\HTMlBrowserModel.cs" />
+    <Compile Include="DataModel\ListOfCodeLocation.cs" />
+    <Compile Include="DataModel\ListOfDirectories.cs" />
+    <Compile Include="DataModel\ListOfFile.cs" />
+    <Compile Include="DataModel\ListofStrings.cs" />
+    <Compile Include="DataModel\ProjectDataModel.cs" />
+    <Compile Include="JobHandler\ExternalProcesshandler.cs" />
+    <Compile Include="JobHandler\IJobHandler.cs" />
+    <Compile Include="JobHandler\Job.cs" />
+    <Compile Include="GunitParser\GUnitParser.cs" />
+    <Compile Include="JobHandler\JobHandlerBase.cs" />
+    <Compile Include="JobHandler\ExtProcessHandlerWithConsole.cs" />
+    <Compile Include="JobHandler\ASTbuilderJobHandler.cs" />
+    <Compile Include="JobHandler\RunCoverageJobHandler.cs" />
+    <Compile Include="JobHandler\RunSolutionBuilder.cs" />
+    <Compile Include="JobHandler\TranslationUnitJobHandler.cs" />
+    <Compile Include="JobHandler\RunOutputJobHandler.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="JobHandler\ProjectBuilder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ui\ConsoleUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\ConsoleUi.Designer.cs">
+      <DependentUpon>ConsoleUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Document.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\Document.Designer.cs">
+      <DependentUpon>Document.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DocumentManagerUiAdapter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\Document_Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\Document_Search.Designer.cs">
+      <DependentUpon>Document_Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\OutlineUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\OutlineUi.Designer.cs">
+      <DependentUpon>OutlineUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\GUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\GUnit.designer.cs">
+      <DependentUpon>GUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\GUnitSideBarBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\GUnitSideBarBase.Designer.cs">
+      <DependentUpon>GUnitSideBarBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\HtmlBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\HtmlBrowser.Designer.cs">
+      <DependentUpon>HtmlBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\UserInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\UserInput.Designer.cs">
+      <DependentUpon>UserInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ProjectSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\ProjectSetting.Designer.cs">
+      <DependentUpon>ProjectSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ProjectUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\ProjectUi.Designer.cs">
+      <DependentUpon>ProjectUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ScintillaSetUp.cs" />
+    <Compile Include="Ui\TreeViewExtensions.cs" />
+    <Content Include="System.Data.SqlServerCe.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="System.Data.SqlServerCe.Entity.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\sqlceca35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\sqlcecompact35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\sqlceer35EN.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\sqlceme35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\sqlceoledb35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\sqlceqp35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\sqlcese35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Ui\ConsoleUi.resx">
+      <DependentUpon>ConsoleUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Document.resx">
+      <DependentUpon>Document.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DocumentManagerUiAdapter.resx">
+      <DependentUpon>DocumentManagerUiAdapter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Document_Search.resx">
+      <DependentUpon>Document_Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\OutlineUi.resx">
+      <DependentUpon>OutlineUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\GUnit.resx">
+      <DependentUpon>GUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\GUnitSideBarBase.resx">
+      <DependentUpon>GUnitSideBarBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\HtmlBrowser.resx">
+      <DependentUpon>HtmlBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\UserInput.resx">
+      <DependentUpon>UserInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ProjectSetting.resx">
+      <DependentUpon>ProjectSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ProjectUi.resx">
+      <DependentUpon>ProjectUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="AMD64\EULA_ENU.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="app.config" />
+    <None Include="GUnit_IDE2010_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Content Include="x86\EULA_ENU.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AMD64\sqlceca35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AMD64\sqlcecompact35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AMD64\sqlceer35EN.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AMD64\sqlceme35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AMD64\sqlceoledb35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AMD64\sqlceqp35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AMD64\sqlcese35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataBaseSchema.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML_Creator\template.html" />
+    <Content Include="premake4.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="gtest-result.xsl" />
+    <None Include="Images\Run.ico" />
+    <None Include="Images\Arguments.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
