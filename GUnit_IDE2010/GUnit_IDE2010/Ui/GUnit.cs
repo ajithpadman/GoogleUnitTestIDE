@@ -546,6 +546,7 @@ namespace Gunit.Ui
             {
                 progress.Invoke((MethodInvoker)delegate
                 {
+                if (val <= progress.Maximum&& val >=progress.Minimum)
                     progress.Value = val;
                 });
 

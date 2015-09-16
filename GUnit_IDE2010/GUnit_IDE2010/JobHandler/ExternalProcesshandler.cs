@@ -47,7 +47,7 @@ namespace GUnit_IDE2010.JobHandler
         /// <param name="RunDir">Directory in which the Executable will be started</param>
         /// <param name="arg">Command line arguments to the Executable</param>
         /// <returns>if the Execution Was successfull</returns>
-        private  bool RunExternalProcess(Job job)
+        protected  bool RunExternalProcess(Job job)
         {
             Process process = null;
             m_currentProcess = null;

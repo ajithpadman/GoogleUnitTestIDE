@@ -13,9 +13,16 @@ namespace Gunit
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GUnit());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new GUnit());
+            }
+            catch(Exception err)
+            {
+                Console.WriteLine(err.ToString());
+            }
         }
     }
 }

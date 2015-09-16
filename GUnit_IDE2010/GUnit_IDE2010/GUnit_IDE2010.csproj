@@ -248,6 +248,9 @@
     </Compile>
     <Compile Include="Ui\ScintillaSetUp.cs" />
     <Compile Include="Ui\TreeViewExtensions.cs" />
+    <Content Include="AStyle.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="System.Data.SqlServerCe.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

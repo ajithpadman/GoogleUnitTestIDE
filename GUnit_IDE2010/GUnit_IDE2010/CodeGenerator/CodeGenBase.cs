@@ -1,4 +1,5 @@
 ﻿using GUnit_IDE2010.DataModel;
+using GUnit_IDE2010.JobHandler;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,10 +8,10 @@ using System.Text;
 
 namespace GUnit_IDE2010.CodeGenerator
 {
-    public class CodeGenBase
+    public class CodeGenBase :ExternalProcesshandler
     {
         protected CodeGenDataModel m_model;
-      
+       
         public CodeGenBase(CodeGenDataModel model)
         {
             m_model = model;
@@ -27,8 +28,20 @@ namespace GUnit_IDE2010.CodeGenerator
             writer.WriteLine(WriteUsing());
             writer.WriteLine(WriteCodeBody());
             writer.WriteLine(WriteCodeGuardEnd());
+           
             return writer.ToString();
 
+        }
+        protected virtual void StyleCode()
+        {
+            if (File.Exists("AStyle.exe"))
+            {
+                Job job = new Job();
+                job.Command = "AStyle.exe";
+                job.Argument = "--style=gnu --indent-classes --mode=c " + m_model.FilePath;
+
+                RunExternalProcess(job);
+            }
         }
         protected virtual string WriteCodeGuard()
         {

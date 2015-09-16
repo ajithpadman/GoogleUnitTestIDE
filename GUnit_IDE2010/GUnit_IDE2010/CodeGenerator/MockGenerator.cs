@@ -75,6 +75,11 @@ namespace GUnit_IDE2010.CodeGenerator
             mock_header.WriteLine("#endif");
             mock_header.Close();
             mock_source.Close();
+            m_model.FilePath = m_Path + "\\" + mockName + ".h";
+            StyleCode();
+            m_model.FilePath = m_Path + "\\" + mockName + ".cpp";
+            StyleCode();
+
         }
         /// <summary>
         /// 
@@ -217,6 +222,9 @@ namespace GUnit_IDE2010.CodeGenerator
             mock_header.WriteLine("#endif");
 
             mock_header.Close();
+            m_model.FilePath = m_Path + "\\" + mockName + ".h";
+            StyleCode();
+           
 
 
         }

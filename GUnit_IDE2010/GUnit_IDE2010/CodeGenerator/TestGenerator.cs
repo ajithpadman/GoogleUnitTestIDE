@@ -181,6 +181,8 @@ namespace GUnit_IDE2010.CodeGenerator
                     StreamWriter fileWriter = new StreamWriter(workingDir + "\\" + MethodName + "_test.cpp");
                     fileWriter.WriteLine(base.GenerateCode());
                     fileWriter.Close();
+                    ((TestGeneratorModel)(m_model)).FilePath = workingDir + "\\" + MethodName + "_test.cpp";
+                    StyleCode();
                 }
             }
             return "";
