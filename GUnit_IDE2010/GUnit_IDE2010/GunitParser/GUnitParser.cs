@@ -238,7 +238,7 @@ namespace GUnit_IDE2010.GunitParser
                 default:
                     foreach (ClangSharp.Cursor child in cursor.Children)
                     {
-                        if (child.Location.File.Name == currentFile)
+                        if (child.Location.File.Name.Replace("/","\\") == currentFile)
                         {
 
                             ParseCursor(child, currentParent, currentFile, parentFile);
@@ -536,7 +536,6 @@ namespace GUnit_IDE2010.GunitParser
             IEnumerable<ClangSharp.Cursor> CalledList = from child in cursor.Descendants
                                                  where (child.Kind == CursorKind.CallExpr)
                                                         select child;
-            
             TreeNode FunctionNode = new TreeNode(method.ReturnType + " " + method.EntityName + "(" + method.Parameters+")");
             FunctionNode.Tag = tag;
             if (cursor.Kind == CursorKind.FunctionDecl)
@@ -557,6 +556,9 @@ namespace GUnit_IDE2010.GunitParser
 
                 switch (child.Kind)
                 {
+                    case CursorKind.VariableRef:
+                        Console.Write("");
+                        break;
                     case CursorKind.CallExpr:
                         MethodCalls called = new MethodCalls();
                         called.ColumnNo = child.Location.Column;

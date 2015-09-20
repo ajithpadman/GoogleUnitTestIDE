@@ -35,6 +35,7 @@ namespace GUnit_IDE2010.CodeGenerator
         {
             StringWriter writer = new StringWriter();
             string ownerClass = "";
+           
             if (IsBoundaryTestAllowed(((TestGeneratorModel)(m_model)).Method))
             {
                 if (((TestGeneratorModel)(m_model)).Method.Arguments.Count() > 0)
@@ -67,10 +68,36 @@ namespace GUnit_IDE2010.CodeGenerator
                     writer.WriteLine("{");
                     writer.WriteLine("public:");
                     int i = 0;
-                   
+                    if (((TestGeneratorModel)(m_model)).Method.Arguments.Count() > 1)
+                    {
+                        ListofStrings parameter = new ListofStrings();
+                        for (i = 0; i < ((TestGeneratorModel)(m_model)).Method.Arguments.Count(); i++)
+                        {
+                            writer.WriteLine(((TestGeneratorModel)(m_model)).Method.Arguments[i].DataType.EntityName+" member_" + i + ";");
+                            
+                        }
+
+                    }
+                    else
+                    {
+                        writer.WriteLine(((TestGeneratorModel)(m_model)).Method.Arguments[0].DataType.EntityName + " member_0;");
+                    }
                     writer.WriteLine(writeFunctionHeader("void SetUp()", "Set up for each tests " ));
                     writer.WriteLine("virtual void SetUp()");
                     writer.WriteLine("{");
+                    if (((TestGeneratorModel)(m_model)).Method.Arguments.Count() > 1)
+                    {
+                        ListofStrings parameter = new ListofStrings();
+                        for (i = 0; i < ((TestGeneratorModel)(m_model)).Method.Arguments.Count(); i++)
+                        {
+                            writer.WriteLine("member_"+i+"= std::tr1::get < " + i + " > (GetParam());");
+                        }
+                        
+                    }
+                    else
+                    {
+                        writer.WriteLine("member_0= GetParam();");
+                    }
                     writer.WriteLine("}");
                     writer.WriteLine(writeFunctionHeader("void TearDown()", "Tear Down each tests "));
                     writer.WriteLine("virtual void TearDown()");
@@ -130,9 +157,10 @@ namespace GUnit_IDE2010.CodeGenerator
                     writer.WriteLine(writeFunctionHeader("TEST", "Test case for Boundary testing Method "+MethodName));
                     writer.WriteLine("TEST_P(" + className + "," + MethodName + "_Test)");
                     writer.WriteLine("{");
+
                     
-                    
-                    writer.WriteLine( "EXPECT_EXIT");
+                   
+                    writer.WriteLine(" 	EXPECT_EXIT");
                     writer.WriteLine( "(");
                     if (mode == TestGenMode.MemberMethod)
                     {
@@ -148,19 +176,19 @@ namespace GUnit_IDE2010.CodeGenerator
                         ListofStrings parameter = new ListofStrings();
                         for (i = 0; i < ((TestGeneratorModel)(m_model)).Method.Arguments.Count(); i++)
                         {
-                            parameter += "std::tr1::get < " + i + " > (GetParam())";
+                            parameter += "member_" + i; //"std::tr1::get < " + i + " > (GetParam())";
                         }
                         writer.WriteLine(String.Join(",", parameter.ToArray()));
                     }
                     else
                     {
-                        writer.WriteLine("GetParam()");
+                        writer.WriteLine("member_0");
                     }
-                    
-                    writer.WriteLine( ");exit(0),ExitedWithCode(0),\"\"");
+
+                    writer.WriteLine(");exit(0),ExitedWithCode(0),\"\"");
                     writer.WriteLine( ");");
-                    
-                  
+
+                   
                     writer.WriteLine("}");
                     
                     

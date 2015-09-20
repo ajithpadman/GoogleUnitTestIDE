@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GUnit_IDE2010.exe" size="1155000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GUnit_IDE2010.exe" size="1177528">
       <assemblyIdentity name="GUnit_IDE2010" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>tvAzAwUSoNi7kfew+Oe+zemNPRE=</dsig:DigestValue>
+        <dsig:DigestValue>Upnt+nQqrP+74Vhngv+D0yP+sAA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

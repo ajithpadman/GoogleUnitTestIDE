@@ -402,6 +402,7 @@ namespace Gunit.DataModel
                     buildOptionCommandLine += "-ftest-coverage";
                 }
                 buildOptionCommandLine += "-x c++";
+              
                 foreach (string str in IncludePaths)
                 {
                     buildOptionCommandLine += "-I";

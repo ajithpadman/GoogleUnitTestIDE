@@ -136,6 +136,8 @@ namespace GUnit_IDE2010.CodeGenerator
                 writer.WriteLine("  {");
                 writer.WriteLine("    " + mockClassName + " l_MockObject;");
                 Member valueMember = null;
+           
+                    
                 valueMember = DatatypeMinMember(method.Methods.DataType, mockClassName + "RetVal");
                 if(valueMember!= null)
                 {

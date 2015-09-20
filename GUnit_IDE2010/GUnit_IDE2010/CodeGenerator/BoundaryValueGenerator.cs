@@ -25,56 +25,62 @@ namespace GUnit_IDE2010.CodeGenerator
         protected Member DatatypeMinMember(DataType type, string memberName)
         {
             Member member = null;
-            switch (type.TypeKind)
+            if (type.IsConstQualified == false)
             {
-                case (int)DataTypeKind.EnumType:
-                    member = EnumTypeMinMember(type.EnumType[0], memberName);
-                    break;
-                case (int)DataTypeKind.ArithmeticType:
-                    member = ArithmeticTypeMinMember(type.ArithmeticType[0], memberName);
-                    break;
-                case (int)DataTypeKind.PointerType:
-                    member = PointerTypeMinMember(type.PointerType[0], memberName);
-                    break;
-                case (int)DataTypeKind.RecordType:
-                    member = RecordTypeMinMember(type.RecordType[0], memberName);
-                    break;
-                case (int)DataTypeKind.ReferenceType:
+                switch (type.TypeKind)
+                {
+                    case (int)DataTypeKind.EnumType:
+                        member = EnumTypeMinMember(type.EnumType[0], memberName);
+                        break;
+                    case (int)DataTypeKind.ArithmeticType:
+                        member = ArithmeticTypeMinMember(type.ArithmeticType[0], memberName);
+                        break;
+                    case (int)DataTypeKind.PointerType:
+                        member = PointerTypeMinMember(type.PointerType[0], memberName);
+                        break;
+                    case (int)DataTypeKind.RecordType:
+                        member = RecordTypeMinMember(type.RecordType[0], memberName);
+                        break;
+                    case (int)DataTypeKind.ReferenceType:
 
-                    break;
-                case (int)DataTypeKind.TypedefType:
-                    member = TypedefTypeMinMember(type.Typedef[0], memberName);
-                    break;
-                default:
-                    break;
+                        break;
+                    case (int)DataTypeKind.TypedefType:
+                        member = TypedefTypeMinMember(type.Typedef[0], memberName);
+                        break;
+                    default:
+                        break;
+                }
             }
             return member;
         }
         protected Member DatatypeMaxMember(DataType type, string memberName)
         {
             Member member = null;
-            switch (type.TypeKind)
+            if (type.IsConstQualified == false)
             {
-                case (int)DataTypeKind.EnumType:
-                    member = EnumTypeMaxMember(type.EnumType[0], memberName);
-                    break;
-                case (int)DataTypeKind.ArithmeticType:
-                    member = ArithmeticTypeMaxMember(type.ArithmeticType[0], memberName);
-                    break;
-                case (int)DataTypeKind.PointerType:
-                    member = PointerTypeMaxMember(type.PointerType[0], memberName);
-                    break;
-                case (int)DataTypeKind.RecordType:
-                    member = RecordTypeMaxMember(type.RecordType[0], memberName);
-                    break;
-                case (int)DataTypeKind.ReferenceType:
+                switch (type.TypeKind)
+                {
+                    case (int)DataTypeKind.EnumType:
+                        member = EnumTypeMaxMember(type.EnumType[0], memberName);
+                        break;
+                    case (int)DataTypeKind.ArithmeticType:
+                        member = ArithmeticTypeMaxMember(type.ArithmeticType[0], memberName);
+                        break;
+                    case (int)DataTypeKind.PointerType:
+                        member = PointerTypeMaxMember(type.PointerType[0], memberName);
+                        break;
+                    case (int)DataTypeKind.RecordType:
+                        member = RecordTypeMaxMember(type.RecordType[0], memberName);
+                        break;
+                    case (int)DataTypeKind.ReferenceType:
 
-                    break;
-                case (int)DataTypeKind.TypedefType:
-                    member = TypedefTypeMaxMember(type.Typedef[0], memberName);
-                    break;
-                default:
-                    break;
+                        break;
+                    case (int)DataTypeKind.TypedefType:
+                        member = TypedefTypeMaxMember(type.Typedef[0], memberName);
+                        break;
+                    default:
+                        break;
+                }
             }
             return member;
         }

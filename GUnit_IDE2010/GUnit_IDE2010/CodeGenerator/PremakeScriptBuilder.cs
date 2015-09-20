@@ -135,14 +135,18 @@ namespace GUnit_IDE2010.CodeGenerator
             writer.WriteLine("------------------------------------------------------------------");
             writer.WriteCodeLine(1, "configurations { \"Debug\"}");
             writer.WriteCodeLine(1, "flags {\"FloatFast\" ,\"StaticRuntime\"}");
-            if (commonInclude != "")
+            ListofStrings buildOptions = new ListofStrings();
+
+            if (string.IsNullOrWhiteSpace(BuildOptions) == false)
             {
-                writer.WriteCodeLine(1, "buildoptions {"+ BuildOptions+"," + commonInclude + "}");
+                buildOptions += BuildOptions;
             }
-            else
+            if (string.IsNullOrWhiteSpace(commonInclude) == false)
             {
-                writer.WriteCodeLine(1, "buildoptions {"+ BuildOptions + "}");
+                buildOptions += commonInclude;
             }
+            writer.WriteCodeLine(1, "buildoptions {"+ String.Join(",", buildOptions.ToArray()) + "}");
+          
             if (m_solnType == PremakeSolutionType.Gmake)
             {
                 writer.WriteCodeLine(1, "linkoptions {\"-fprofile-arcs\"}");

@@ -259,7 +259,7 @@ namespace Gunit.Ui
 
 
 
-                string outputxmlPath = Path.GetDirectoryName(m_ProjectModel.ProjectPath) + "\\" + m_ProjectModel.ProjectName + "_TestReport";
+                string outputxmlPath = (m_ProjectModel.BuildPath) + "\\" + m_ProjectModel.ProjectName + "_TestReport";
                 if(Directory.Exists(outputxmlPath) == false)
                 {
                     Directory.CreateDirectory(outputxmlPath);
@@ -650,7 +650,7 @@ namespace Gunit.Ui
                 if (obj is Classes)
                 {
                     CodeGenDataModel model = new CodeGenDataModel();
-                    MockGenerator mockGen = new MockGenerator(Path.GetDirectoryName(m_ProjectModel.ProjectPath) + "\\" + m_ProjectModel.ProjectName + "_Mocks", model);
+                    MockGenerator mockGen = new MockGenerator((m_ProjectModel.BuildPath) + "\\" + m_ProjectModel.ProjectName + "_Mocks", model);
                     mockGen.generateMockClass(obj as Classes);
                 }
                 if (obj is GlobalMethods)
@@ -672,7 +672,7 @@ namespace Gunit.Ui
                     ModuleName = name.Result;
                 }
                 CodeGenDataModel Globalmodel = new CodeGenDataModel();
-                MockGenerator GlobalmockGen = new MockGenerator(Path.GetDirectoryName(m_ProjectModel.ProjectPath) + "\\" + m_ProjectModel.ProjectName + "_Mocks", Globalmodel);
+                MockGenerator GlobalmockGen = new MockGenerator((m_ProjectModel.BuildPath) + "\\" + m_ProjectModel.ProjectName + "_Mocks", Globalmodel);
                 GlobalmockGen.generateMockClass(GlobalMethods, ModuleName);
             }
             MessageBox.Show("Mocks generated in " +  m_ProjectModel.ProjectName + "_Mocks folder");
@@ -901,7 +901,7 @@ namespace Gunit.Ui
             {
                 BoundaryTestGenerator b = new BoundaryTestGenerator(m_ProjectModel.DBPath);
                 ListofFiles files = m_frmProjectUi.ProjectUi_getParseRequest();
-                string DirectoryName = Path.GetDirectoryName(m_ProjectModel.BuildPath) + "\\" + "GeneratedTests_" + m_ProjectModel.ProjectName;
+                string DirectoryName = (m_ProjectModel.BuildPath) + "\\" + "GeneratedTests_" + m_ProjectModel.ProjectName;
                 if (Directory.Exists(DirectoryName) == false)
                 {
                     Directory.CreateDirectory(DirectoryName);
