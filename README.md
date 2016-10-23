@@ -11,10 +11,10 @@ GUnit is an Integrated Development Environment for Unit test Development using G
 The IDE uses the MINGW gnu tool chain to compile the files
 #Features
 - Mock Class Generation
-- Boundary Test Generation
 - Coverage Analysis
 - Unit test result  Report Generation in HTML format
 - Unit Test Coverage Report Generation in HTML format
+- extend the featurs using .NET Plugin
 
 
 
