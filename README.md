@@ -7,7 +7,7 @@ An Integrated Development Environment for  Unit Test Development using Gtest and
 4. Clang 3.7.0 or above(http://llvm.org/releases/download.html)
 
 # About GUnit
-GUnit is an Integrated Development Environment for Unit test Development using Google Test and Google Mock framework. The IDE makes use of libclang library to parse the Files to identify the functions available in the files and their argument types. This helps in identifying what all need to be mocked to execute the Unit tests. The IDE also gives the facility of generating the Mock Classes in the format specified by the Gmock library.Using the IDE the basic Boundary tests can also be generated. 
+GUnit is an Integrated Development Environment for Unit test Development using Google Test and Google Mock framework. The IDE makes use of libclang library to parse the Files to identify the functions available in the files and their argument types. This helps in identifying what all need to be mocked to execute the Unit tests. The IDE also gives the facility of generating the Mock Classes in the format specified by the Gmock library.. 
 The IDE uses the MINGW gnu tool chain to compile the files
 #Features
 - Mock Class Generation
