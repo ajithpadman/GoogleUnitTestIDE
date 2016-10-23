@@ -1,0 +1,10 @@
+﻿<ProjectSettings>
+  <BuildDirectory
+    Path="D:\\Build" />
+  <CompilerPath
+    Path="g++" />
+  <InstrumentationStatus
+    status="TRUE" />
+  <WarningLevel
+    Level="EnableAllWarning" />
+</ProjectSettings>

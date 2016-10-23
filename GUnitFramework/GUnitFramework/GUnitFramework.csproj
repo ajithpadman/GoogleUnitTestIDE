@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AC6F4369-A1F5-42CE-92A9-9BE5B773BD12}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GUnitFramework</RootNamespace>
+    <AssemblyName>GUnitFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>DLL.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ASTBuilder, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ASTBuilder\ASTBuilder\ASTBuilder\bin\Debug\ASTBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="ClangSharp">
+      <HintPath>..\..\..\ASTBuilder\ASTBuilder\ASTBuilder\bin\Debug\ClangSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CPPASTBuilder">
+      <HintPath>..\..\..\ASTBuilder\ASTBuilder\CPPASTBuilder\bin\Debug\CPPASTBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>..\Gunit\dll\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Implementation\CoverageAnalyser.cs" />
+    <Compile Include="Implementation\ExternalProcessHandler.cs" />
+    <Compile Include="Implementation\Job.cs" />
+    <Compile Include="Implementation\ListOfConsoleData.cs" />
+    <Compile Include="Implementation\ListofStrings.cs" />
+    <Compile Include="Implementation\ObjectList.cs" />
+    <Compile Include="Implementation\ProjectData.cs" />
+    <Compile Include="Implementation\PropertyNotifier.cs" />
+    <Compile Include="Implementation\TestSuit.cs" />
+    <Compile Include="Implementation\TreeViewExtensions.cs" />
+    <Compile Include="Interfaces\IBuildResult.cs" />
+    <Compile Include="Interfaces\ICGunitHost.cs" />
+    <Compile Include="Interfaces\ICGunitPlugin.cs" />
+    <Compile Include="Interfaces\ICodeBuilder.cs" />
+    <Compile Include="Interfaces\ICoverageAnalyser.cs" />
+    <Compile Include="Interfaces\ICppMockGenerator.cs" />
+    <Compile Include="Interfaces\ICppParser.cs" />
+    <Compile Include="Interfaces\ICProjectData.cs" />
+    <Compile Include="Interfaces\IJob.cs" />
+    <Compile Include="Interfaces\IMockGenrator.cs" />
+    <Compile Include="Interfaces\IParser.cs" />
+    <Compile Include="Interfaces\IProcessHandler.cs" />
+    <Compile Include="Interfaces\ITestReportGenerator.cs" />
+    <Compile Include="Interfaces\IBoundaryTestGenerator.cs" />
+    <Compile Include="Interfaces\ItestRunner.cs" />
+    <Compile Include="Interfaces\ITestSuit.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DLL.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
