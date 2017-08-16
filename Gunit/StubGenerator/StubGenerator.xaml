@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="StubGenerator.StubGenerator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks" 
+             xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <!-- Header for the Split View-->
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="5">
+              <ToolBar >
+                <ToolBar.Items>
+                    <!--Button used for generating the mock file after parsing-->
+                    <Button x:Name="btnParser" HorizontalAlignment="Right"  BorderBrush="{DynamicResource WindowTitleColorBrush}" BorderThickness="1" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="30" Height="30" Click="btnParser_Click">
+                        <icon:PackIconMaterial Kind="PlayCircle" Foreground="{DynamicResource WindowTitleColorBrush}" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="GenerateMock"></icon:PackIconMaterial>
+                    </Button>
+                </ToolBar.Items>
+            </ToolBar>
+        </StackPanel>
+       <Grid Grid.ColumnSpan="3" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*">
+
+                </ColumnDefinition>
+                <ColumnDefinition Width="5">
+
+                </ColumnDefinition>
+                <ColumnDefinition Width="*">
+
+                </ColumnDefinition>
+                <ColumnDefinition Width="5">
+
+                </ColumnDefinition>
+                <ColumnDefinition Width="*">
+
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" ></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label  Content="Selected File "  BorderThickness="1" Background="{DynamicResource WindowTitleColorBrush}" Foreground="{DynamicResource IdealForegroundColorBrush}" Grid.Column="0" Grid.Row="0" ></Label>
+            <!--Code editor used to display selected Interface File-->
+            <avalonEdit:TextEditor BorderBrush="{DynamicResource WindowTitleColorBrush}" BorderThickness="1" x:Name="txtSelectedFileDisplay"   LineNumbersForeground="{DynamicResource WindowTitleColorBrush}"  ShowLineNumbers="True" 
+                         Document="{Binding Document, UpdateSourceTrigger=PropertyChanged}"
+                         SyntaxHighlighting="{Binding HighlightDef}"
+                         VerticalScrollBarVisibility="Visible"
+                         HorizontalScrollBarVisibility="Visible"
+                         IsModified="{Binding Path=IsDirty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         FontFamily="Consolas" 
+                       FontSize="10pt" 
+                                       Margin="10,5,10,5"
+                                       Grid.Column="0" Grid.Row="1" />
+            <!--Splitter to enable easy resizing of the the different code editors-->
+            <GridSplitter Grid.Column="1" Grid.RowSpan="2" Width="5" ResizeDirection="Columns" HorizontalAlignment="Stretch"></GridSplitter>
+
+            <Label  Content="Mock Class "  BorderThickness="1"  Background="{DynamicResource WindowTitleColorBrush}" Foreground="{DynamicResource IdealForegroundColorBrush}" Grid.Column="2"></Label>
+           <!-- Code Editor used to display the mock class generated-->
+            <avalonEdit:TextEditor BorderBrush="{DynamicResource WindowTitleColorBrush}" BorderThickness="1" x:Name="txtMockFileDisplay"  Grid.Column="2" Grid.Row="1" LineNumbersForeground="{DynamicResource WindowTitleColorBrush}"  ShowLineNumbers="True" 
+                       FontFamily="Consolas"
+                       FontSize="10pt" 
+                                       Margin="10,5,10,5"/>
+
+            <GridSplitter Grid.Column="3" Grid.RowSpan="2" Width="5" HorizontalAlignment="Stretch"></GridSplitter>
+
+            <Label  Content="Stub File"  Grid.Column="4"  BorderThickness="1"  Background="{DynamicResource WindowTitleColorBrush}" Foreground="{DynamicResource IdealForegroundColorBrush}"></Label>
+            <!-- Code Editor used to display the Stub implmentation generated-->
+            <avalonEdit:TextEditor BorderBrush="{DynamicResource WindowTitleColorBrush}" BorderThickness="1" x:Name="txtMockFileSrcDisplay"  Grid.Column="4" Grid.Row="1" LineNumbersForeground="{DynamicResource WindowTitleColorBrush}"  ShowLineNumbers="True" 
+                       FontFamily="Consolas"
+                       FontSize="10pt"  
+                       Margin="10,5,10,5"/>
+        </Grid>
+    </Grid>
+</UserControl>

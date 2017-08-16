@@ -1,0 +1,182 @@
+﻿<UserControl x:Class="Gunit.View.ProjectSettingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+              xmlns:localProxy="clr-namespace:Gunit.Model"
+              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             >
+   
+    <Grid >
+        <Grid.Resources>
+            <localProxy:BindingProxy x:Key="Proxy" Data="{Binding}" />
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".3*"></ColumnDefinition>
+            <ColumnDefinition Width=".4*"></ColumnDefinition>
+            <ColumnDefinition Width=".1*"></ColumnDefinition>
+            <ColumnDefinition Width=".2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height=".25*"></RowDefinition>
+            <RowDefinition Height=".25*"></RowDefinition>
+            <RowDefinition Height=".25*"></RowDefinition>
+            <RowDefinition Height=".25*"></RowDefinition>
+            <RowDefinition Height=".25*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Label Content="Project Settings" Grid.ColumnSpan="4" Background="{DynamicResource WindowTitleColorBrush}" Foreground="{DynamicResource IdealForegroundColorBrush}"/>
+
+        <DataGrid x:Name="IncludeGrid" ItemsSource="{Binding Path=IncludePaths}"  SelectedIndex="{Binding Path=SelectedIncludePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" AutoGenerateColumns="False" Style="{StaticResource AzureDataGrid}" BorderBrush="{DynamicResource WindowTitleColorBrush}" BorderThickness="1">
+            <DataGrid.Columns>
+                
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".1*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" VerticalAlignment="Center">INCLUDE PATHS</TextBlock>
+                                <Button  Command="{Binding Path= Data.AddIncludePaths, Source={StaticResource Proxy}}"  Grid.Column="1" Style="{DynamicResource MetroCircleButtonStyle}" Width="30" Height="30">
+                                    <icon:PackIconModern x:Name="addIcon" Width="15" Height="15" Margin="2" Kind="Add" ToolTip="Edit Include Paths" Foreground="{DynamicResource WindowTitleColorBrush}"></icon:PackIconModern>
+                                </Button>
+                                <Button Command="{Binding Path=Data.RemoveIncludePaths, Source={StaticResource Proxy}}" CommandParameter="{Binding Path=SelectedItem, ElementName=IncludeGrid}"  Grid.Column="2" Style="{DynamicResource MetroCircleButtonStyle}"  Width="30" Height="30">
+                                    <icon:PackIconModern Width="15" Height="15" Margin="2" Kind="Delete" ToolTip="Delete Include Paths" Foreground="{DynamicResource WindowTitleColorBrush}"></icon:PackIconModern>
+                                    
+                                </Button>
+                            </Grid>
+                            
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            
+                            <TextBlock Text="{Binding}"> </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+               
+                   
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <DataGrid x:Name="libGrid" ItemsSource="{Binding Path=LibraryPaths}"  SelectedIndex="{Binding Path=SelectedLibraryPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.ColumnSpan="4" AutoGenerateColumns="False" Style="{StaticResource AzureDataGrid}" BorderBrush="{DynamicResource WindowTitleColorBrush}" BorderThickness="1">
+            <DataGrid.Columns>
+
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".1*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" VerticalAlignment="Center">LIBRARY PATHS</TextBlock>
+                                <Button  Command="{Binding Path= Data.AddLibraryPaths, Source={StaticResource Proxy}}"  Grid.Column="1" Style="{DynamicResource MetroCircleButtonStyle}" Width="30" Height="30">
+                                    <icon:PackIconModern Width="15" Height="15" Margin="2" Kind="Add" ToolTip="Edit Library Paths" Foreground="{DynamicResource WindowTitleColorBrush}"></icon:PackIconModern>
+                                </Button>
+                                <Button Command="{Binding Path=Data.RemoveLibraryPaths, Source={StaticResource Proxy}}" CommandParameter="{Binding Path=SelectedItem, ElementName=libGrid}"  Grid.Column="2" Style="{DynamicResource MetroCircleButtonStyle}"  Width="30" Height="30">
+                                    <icon:PackIconModern Width="15" Height="15" Margin="2" Kind="Delete" ToolTip="Delete Library Paths" Foreground="{DynamicResource WindowTitleColorBrush}"></icon:PackIconModern>
+                                </Button>
+                            </Grid>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <TextBlock Text="{Binding}"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <DataGrid ItemsSource="{Binding Path=LibNames}" Grid.Row="3" Grid.ColumnSpan="4" AutoGenerateColumns="False"  Style="{StaticResource AzureDataGrid}" BorderBrush="{DynamicResource WindowTitleColorBrush}" BorderThickness="1"  SelectedIndex="{Binding Path=SelectedLibraryName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".1*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" VerticalAlignment="Center">LIBRARY NAMES</TextBlock>
+                                <Button  Command="{Binding Path= Data.AddLibNames, Source={StaticResource Proxy}}"  Grid.Column="1" Style="{DynamicResource MetroCircleButtonStyle}" Width="30" Height="30">
+                                    <icon:PackIconModern Width="15" Height="15" Margin="2" Kind="Add" ToolTip="Add/Remove Library Names" Foreground="{DynamicResource WindowTitleColorBrush}"></icon:PackIconModern>
+                                </Button>
+                                <Button Command="{Binding Path=Data.RemoveLibNames, Source={StaticResource Proxy}}" CommandParameter="{Binding Path=SelectedItem, ElementName=libGrid}"  Grid.Column="2" Style="{DynamicResource MetroCircleButtonStyle}"  Width="30" Height="30">
+                                    <icon:PackIconModern Width="15" Height="15" Margin="2" Kind="Delete" ToolTip="Delete Library Paths" Foreground="{DynamicResource WindowTitleColorBrush}"></icon:PackIconModern>
+                                </Button>
+                            </Grid>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <TextBlock Text="{Binding}"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+              
+                   
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <DataGrid ItemsSource="{Binding Path=Defines}" Grid.Row="4" Grid.ColumnSpan="4" AutoGenerateColumns="False" Style="{StaticResource AzureDataGrid}" BorderBrush="{DynamicResource WindowTitleColorBrush}" BorderThickness="1" SelectedIndex="{Binding Path=SelectedDefine, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".1*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" VerticalAlignment="Center">MACRO DEFINITIONS</TextBlock>
+                                <Button  Command="{Binding Path= Data.AddDefines, Source={StaticResource Proxy}}"  Grid.Column="1" Style="{DynamicResource MetroCircleButtonStyle}" Width="30" Height="30">
+                                    <icon:PackIconModern Width="15" Height="15" Margin="2" Kind="Add" ToolTip="Add/Remove Defines" Foreground="{DynamicResource WindowTitleColorBrush}"></icon:PackIconModern>
+                                </Button>
+                                <Button Command="{Binding Path=Data.RemoveDefines, Source={StaticResource Proxy}}" CommandParameter="{Binding Path=SelectedItem, ElementName=libGrid}"  Grid.Column="2" Style="{DynamicResource MetroCircleButtonStyle}"  Width="30" Height="30">
+                                    <icon:PackIconModern Width="15" Height="15" Margin="2" Kind="Delete" ToolTip="Delete Macros" Foreground="{DynamicResource WindowTitleColorBrush}"></icon:PackIconModern>
+                                </Button>
+                            </Grid>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <TextBlock Text="{Binding}"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+               
+            </DataGrid.Columns>
+        </DataGrid>
+       
+
+
+    </Grid>
+</UserControl>

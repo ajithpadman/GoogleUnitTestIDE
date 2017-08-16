@@ -1,0 +1,12 @@
+D:\MyProjects\Gunit\GunitFramework\bin\Release\GunitFramework.dll
+D:\MyProjects\Gunit\GunitFramework\bin\Release\GunitFramework.pdb
+D:\MyProjects\Gunit\GunitFramework\obj\Release\GunitFramework.Properties.Resources.resources
+D:\MyProjects\Gunit\GunitFramework\obj\Release\GunitFramework.csproj.GenerateResource.Cache
+D:\MyProjects\Gunit\GunitFramework\obj\Release\GunitFramework.dll
+D:\MyProjects\Gunit\GunitFramework\obj\Release\GunitFramework.pdb
+E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\GunitFramework\bin\Release\GunitFramework.dll
+E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\GunitFramework\bin\Release\GunitFramework.pdb
+E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\GunitFramework\obj\Release\GunitFramework.Properties.Resources.resources
+E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\GunitFramework\obj\Release\GunitFramework.csproj.GenerateResource.Cache
+E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\GunitFramework\obj\Release\GunitFramework.dll
+E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\GunitFramework\obj\Release\GunitFramework.pdb

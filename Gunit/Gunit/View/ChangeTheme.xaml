@@ -1,0 +1,25 @@
+﻿<Controls:MetroWindow x:Class="Gunit.View.ChangeTheme"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Change Theme" Height="200" Width="400"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      WindowStartupLocation="CenterScreen"
+         xmlns:metro="clr-namespace:MahApps.Metro;assembly=MahApps.Metro" BorderBrush="{DynamicResource WindowTitleColorBrush}" BorderThickness="1">
+    <Grid>
+        <WrapPanel Orientation="Horizontal" VerticalAlignment="Center" >
+            <Label Foreground="{DynamicResource WindowTitleColorBrush}">Choose Theme</Label>
+            <Rectangle Width="35" Stroke="Transparent" Fill="Transparent"></Rectangle>
+            <ComboBox x:Name="AccentSelector" Width="250" Background="{DynamicResource WindowTitleColorBrush}" Foreground="{DynamicResource  IdealForegroundColorBrush}"
+                              Margin="0 0 2 0"
+                              VerticalAlignment="Center"
+                              SelectionChanged="AccentSelectionChanged"
+                              ItemsSource="{x:Static metro:ThemeManager.Accents}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </WrapPanel>
+    </Grid>
+</Controls:MetroWindow>

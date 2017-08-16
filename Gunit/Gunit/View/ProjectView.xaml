@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="Gunit.View.ProjectView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:localProxy="clr-namespace:Gunit.Model"
+             xmlns:converter="clr-namespace:Gunit.Model.Convertors" 
+             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks">
+   
+    
+    <Grid>
+        <Grid.Resources>
+            <localProxy:BindingProxy x:Key="Proxy" Data="{Binding}" />
+            <converter:FileNameConvertor x:Key="FileConvert" />
+            <Style x:Key="ClearButan" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border"
+                     Padding="4"
+                     Background="transparent">
+                                <Grid >
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    </ContentPresenter>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Content="Solution Explorer" Grid.ColumnSpan="2" Background="{DynamicResource  AccentBaseColorBrush}" Foreground="{DynamicResource IdealForegroundColorBrush}"/>
+            <TreeView Grid.Row="1" Grid.ColumnSpan="2"  >
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="IsExpanded" Value="True"/>
+                </Style>
+            </TreeView.ItemContainerStyle>
+            <!--Tree View to Show the project Files-->    
+            <TreeViewItem x:Name="ProjectNode" Header="{Binding Name}">
+               
+                <!--Source files Node in the TreeView for project Bound to the SourceFiles Collection from ProjectViewModel DataContext-->
+                <TreeViewItem x:Name="SourceFile" ItemsSource="{Binding SourceFiles}"  FontSize="15" >
+                    <TreeViewItem.Header>
+                        <WrapPanel>
+                            <icon:PackIconOcticons Width="25" Height="25" Margin="2" Kind="FileDirectory" ToolTip="Source File Folder" Foreground="{DynamicResource WindowTitleColorBrush}"></icon:PackIconOcticons>
+                            <Label HorizontalAlignment="Left" Content="SourceFiles" ></Label>
+                        </WrapPanel>
+                           
+                         
+                     </TreeViewItem.Header>
+                   
+                    <TreeViewItem.ContextMenu>
+                        <ContextMenu >
+                            <!--Menu Item Executing the Add Source File Command From ProjectViewModel-->
+                            <MenuItem  Header="Add File" Command="{Binding Source={StaticResource Proxy}, Path=Data.AddSourceFileCommand}"></MenuItem>
+                            <MenuItem  Header="Add New File" Command="{Binding Source={StaticResource Proxy}, Path=Data.AddNewSourceFileCommand}"></MenuItem>
+                        </ContextMenu>
+                    </TreeViewItem.ContextMenu>
+                        
+                    <TreeViewItem.ItemTemplate>
+                        <DataTemplate>
+
+                            <WrapPanel>
+                                <icon:PackIconOcticons Width="20" Height="20" Margin="2" Kind="FileCode" ToolTip="Source Folder" Foreground="{DynamicResource WindowTitleColorBrush}"></icon:PackIconOcticons>
+                                <Button HorizontalAlignment="Left" Style="{StaticResource ClearButan}" Content="{Binding Converter={StaticResource FileConvert}}"  Command="{Binding Source={StaticResource Proxy}, Path=Data.OpenFileCommand}" CommandParameter="{Binding}" FontSize="12"></Button>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </TreeViewItem.ItemTemplate>
+                 </TreeViewItem>
+                <TreeViewItem x:Name="HeaderFile" ItemsSource="{Binding HeaderFiles}" FontSize="15" >
+                    <TreeViewItem.Header>
+
+                        <WrapPanel>
+                            <icon:PackIconOcticons Width="25" Height="25" Margin="2" Kind="FileDirectory" ToolTip="Header File Folder" Foreground="{DynamicResource WindowTitleColorBrush}"></icon:PackIconOcticons>
+                            <Label HorizontalAlignment="Left" Content="HeaderFiles" ></Label>
+                        </WrapPanel>
+                    </TreeViewItem.Header>
+                    <TreeViewItem.ContextMenu>
+                        <ContextMenu >
+                            <MenuItem  Header="Add File" Command="{Binding Source={StaticResource Proxy}, Path=Data.AddHeaderFileCommand}"></MenuItem>
+                            <MenuItem  Header="Add New File" Command="{Binding Source={StaticResource Proxy}, Path=Data.AddNewHeaderFileCommand}"></MenuItem>
+                        </ContextMenu>
+                    </TreeViewItem.ContextMenu>
+                    <TreeViewItem.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <icon:PackIconOcticons Width="20" Height="20" Margin="2" Kind="FileCode" ToolTip="Source Folder" Foreground="{DynamicResource WindowTitleColorBrush}"></icon:PackIconOcticons>
+                                
+                                <Button HorizontalAlignment="Left" Style="{StaticResource ClearButan}" Content="{Binding Converter={StaticResource FileConvert}}"  Command="{Binding Source={StaticResource Proxy}, Path=Data.OpenFileCommand}" CommandParameter="{Binding}" FontSize="12"></Button>
+                            </WrapPanel>
+                            
+                           
+                        </DataTemplate>
+                    </TreeViewItem.ItemTemplate>
+                </TreeViewItem>
+                <TreeViewItem x:Name="PreIncludeFiles" ItemsSource="{Binding PreHeaderFiles}"   FontSize="15">
+                    <TreeViewItem.Header>
+                        <WrapPanel>
+                            <icon:PackIconOcticons Width="25" Height="25" Margin="2" Kind="FileDirectory" ToolTip="Header File Folder" Foreground="{DynamicResource WindowTitleColorBrush}"></icon:PackIconOcticons>
+                           
+                            <Label HorizontalAlignment="Left" Content="IncludeFiles" ></Label>
+                        </WrapPanel>
+                       
+                    </TreeViewItem.Header>
+                    <TreeViewItem.ContextMenu>
+                        <ContextMenu >
+                            <MenuItem  Header="Add File" Command="{Binding Source={StaticResource Proxy}, Path=Data.AddPreHeaderFileCommand}"></MenuItem>
+                            <MenuItem  Header="Add New File" Command="{Binding Source={StaticResource Proxy}, Path=Data.AddNewPreHeaderFileCommand}"></MenuItem>
+                        </ContextMenu>
+                    </TreeViewItem.ContextMenu>
+                    <TreeViewItem.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <icon:PackIconOcticons Width="20" Height="20" Margin="2" Kind="FileCode" ToolTip="Source Folder" Foreground="{DynamicResource WindowTitleColorBrush}"></icon:PackIconOcticons>
+                                
+                                <Button HorizontalAlignment="Left" Style="{StaticResource ClearButan}" Content="{Binding Converter={StaticResource FileConvert}}"  Command="{Binding Source={StaticResource Proxy}, Path=Data.OpenFileCommand}" CommandParameter="{Binding}" FontSize="12"></Button>
+                            </WrapPanel>
+                           
+                        </DataTemplate>
+                    </TreeViewItem.ItemTemplate>
+                </TreeViewItem>
+            </TreeViewItem>
+        </TreeView>
+
+    </Grid>
+
+</UserControl>

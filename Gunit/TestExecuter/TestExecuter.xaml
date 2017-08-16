@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="TestExecuter.TestExecuter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:converter="clr-namespace:TestExecuter">
+    
+    <Grid Margin="0,10,0,0">
+        <Grid.Resources>
+            <converter:ResultViewConverter x:Key="ResultConvert" />
+        </Grid.Resources>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".3*"></ColumnDefinition>
+            <ColumnDefinition Width=".6*"></ColumnDefinition>
+            <ColumnDefinition Width=".2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Label Content="Path to Binary"></Label>
+        <TextBox Text="{Binding PathtoExecutable, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Background="{DynamicResource WindowTitleColorBrush}"  Margin="10,5,10,5"></TextBox>
+        <Button Grid.Column="2"  x:Name="btnBrowseExe" Style="{DynamicResource MetroCircleButtonStyle}" Width="35" Height="35" Click="btnBrowseExe_Click" ToolTip="Browse for the path to Executable for Test" >
+            <icon:PackIconModern Kind="Box" Width="15" Height="15" Foreground="{DynamicResource WindowTitleColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            </icon:PackIconModern>
+        </Button>
+
+
+        <Label Content="Path to Gcov" Grid.Row="1"></Label>
+        <TextBox Text="{Binding PathToGcov, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" Background="{DynamicResource WindowTitleColorBrush}"  Margin="10,5,10,5"></TextBox>
+        <Button Grid.Column="2" Grid.Row="1" x:Name="btnBrowseGcov" Style="{DynamicResource MetroCircleButtonStyle}" Width="35" Height="35" Click="btnBrowseGcov_Click" ToolTip="Browse for the path to Gcov for Coverage Analyser" >
+            <icon:PackIconModern Kind="Box" Width="15" Height="15" Foreground="{DynamicResource WindowTitleColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            </icon:PackIconModern>
+        </Button>
+
+        <Label Content="Path to Objects" Grid.Row="2"></Label>
+        <TextBox Text="{Binding PathtoObjects, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2" Background="{DynamicResource WindowTitleColorBrush}"  Margin="10,5,10,5"></TextBox>
+        <Button Grid.Column="2" Grid.Row="2" x:Name="btnBrowserObj" Style="{DynamicResource MetroCircleButtonStyle}" Width="35" Height="35" Click="btnBrowserObj_Click" ToolTip="Browse for the path to Objects Directory" >
+            <icon:PackIconModern Kind="Box" Width="15" Height="15" Foreground="{DynamicResource WindowTitleColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            </icon:PackIconModern>
+        </Button>
+
+        <Label Content="Path to TestReport" Grid.Row="3"></Label>
+        <TextBox Text="{Binding PathToTestReport, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="3" Background="{DynamicResource WindowTitleColorBrush}"  Margin="10,5,10,5"></TextBox>
+        <Button Grid.Column="2" Grid.Row="3" x:Name="btnBrowseTestReport" Style="{DynamicResource MetroCircleButtonStyle}" Width="35" Height="35" Click="btnBrowseTestReport_Click" ToolTip="Browse for the Directory where to store Test report" >
+            <icon:PackIconModern Kind="Box" Width="15" Height="15" Foreground="{DynamicResource WindowTitleColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            </icon:PackIconModern>
+        </Button>
+
+        <Label Content="Path to Coverage Report" Grid.Row="4"></Label>
+        <TextBox Text="{Binding PathToCoverageReport, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="4" Background="{DynamicResource WindowTitleColorBrush}"  Margin="10,5,10,5"></TextBox>
+        <Button Grid.Column="2" Grid.Row="4" x:Name="btnBrowseCoverageReport" Style="{DynamicResource MetroCircleButtonStyle}" Width="35" Height="35" Click="btnBrowseCoverageReport_Click" ToolTip="Browse for the Directory where to store Coverage report" >
+            <icon:PackIconModern Kind="Box" Width="15" Height="15" Foreground="{DynamicResource WindowTitleColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            </icon:PackIconModern>
+        </Button>
+        <DataGrid x:Name="myDataGrid"  Grid.Row="5" Grid.ColumnSpan="3" Margin="10,5,10,5" Style="{StaticResource AzureDataGrid}" ItemsSource="{Binding TestSuits}" AutoGenerateColumns="False" BorderBrush="{DynamicResource WindowTitleColorBrush}" BorderThickness="1">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Button  Grid.Column="2" Grid.Row="3"  x:Name="btnRunAll" Style="{DynamicResource MetroCircleButtonStyle}" Width="35" Height="35" Click="btnRunAll_Click" ToolTip="Run All TestSuits" >
+                                    <icon:PackIconMaterial Kind="PlayCircle" Width="15" Height="15" Foreground="{DynamicResource WindowTitleColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"  >
+                                    </icon:PackIconMaterial>
+                                </Button>
+
+                                <Label Content="Test Suits"></Label>
+                            </StackPanel>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Expander Background="{DynamicResource WindowTitleColorBrush}" Margin="10,5,10,5" >
+                                        <Expander.Header>
+                                            <StackPanel Orientation="Horizontal">
+                                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" ></CheckBox>
+                                                <Label Content="{Binding TestSuitName}"></Label>
+
+                                            </StackPanel>
+
+                                        </Expander.Header>
+                                        <ListBox ItemsSource="{Binding TestCases}" >
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding Status,Converter={StaticResource ResultConvert}}"></CheckBox>
+                                                        <Label  Content="{Binding Name}"  >
+                                                            <Label.ToolTip>
+                                                                <WrapPanel>
+                                                                    <Label Content="{Binding ErrorString}"></Label>
+                                                                    <Label Content="{Binding ExecutionTime}"></Label>
+                                                                </WrapPanel>
+                                                               
+                                                            </Label.ToolTip>
+                                                        </Label>
+
+                                                    </StackPanel>
+                                                </ScrollViewer>
+                                            </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </Expander>
+                               
+                            </Grid>
+
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+        <Controls:MetroProgressBar x:Name="progess" IsIndeterminate="{Binding IsIndeterminate, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="{Binding Progress, UpdateSourceTrigger=PropertyChanged}" Maximum="{Binding MaxProgress, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" Margin="10,5,10,5" Height="20"></Controls:MetroProgressBar>
+
+
+
+
+    </Grid>
+</UserControl>
