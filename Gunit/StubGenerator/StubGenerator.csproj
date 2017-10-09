@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ASTBuilder">
-      <HintPath>..\Gunit\bin\Debug\ASTBuilder.dll</HintPath>
+      <HintPath>..\ASTBuilder\ASTBuilder\ASTBuilder\bin\Release\ASTBuilder.dll</HintPath>
     </Reference>
     <Reference Include="ClangSharp">
       <HintPath>..\Gunit\bin\Debug\ClangSharp.dll</HintPath>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{16D1C392-DA08-494F-AEE3-DACE9F6D353B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CPPASTBuilder</RootNamespace>
+    <AssemblyName>CPPASTBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClangSharp">
+      <HintPath>..\ASTBuilder\dll\ClangSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CPPASTBuilder.cs" />
+    <Compile Include="CppParser.cs" />
+    <Compile Include="Implementation\ArithmeticType.cs" />
+    <Compile Include="Implementation\Array.cs" />
+    <Compile Include="Implementation\ClangSettings.cs" />
+    <Compile Include="Implementation\Class.cs" />
+    <Compile Include="Implementation\CppCodeDescription.cs" />
+    <Compile Include="Implementation\Enum.cs" />
+    <Compile Include="Implementation\EnumElements.cs" />
+    <Compile Include="Implementation\MemberMethod.cs" />
+    <Compile Include="Implementation\MemberVariable.cs" />
+    <Compile Include="Implementation\Namespace.cs" />
+    <Compile Include="Implementation\Pointer.cs" />
+    <Compile Include="Implementation\ReferenceType.cs" />
+    <Compile Include="Implementation\Structure.cs" />
+    <Compile Include="Implementation\Typedef.cs" />
+    <Compile Include="Interfaces\IArithMeticType.cs" />
+    <Compile Include="Interfaces\IArray.cs" />
+    <Compile Include="Interfaces\IClangSettings.cs" />
+    <Compile Include="Interfaces\IClass.cs" />
+    <Compile Include="Interfaces\ICppCodeDescription.cs" />
+    <Compile Include="Interfaces\ICppDataType.cs" />
+    <Compile Include="Interfaces\IEnum.cs" />
+    <Compile Include="Interfaces\IEnumElements.cs" />
+    <Compile Include="Interfaces\IMember.cs" />
+    <Compile Include="Interfaces\IMemberMethod.cs" />
+    <Compile Include="Interfaces\IMemberVariable.cs" />
+    <Compile Include="Interfaces\INamespace.cs" />
+    <Compile Include="Interfaces\IPointerType.cs" />
+    <Compile Include="Interfaces\IReferenceType.cs" />
+    <Compile Include="Interfaces\IStructure.cs" />
+    <Compile Include="Interfaces\ITypeDef.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeParser.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

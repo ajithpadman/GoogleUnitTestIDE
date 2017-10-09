@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExecuter", "TestExecute
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GunitFramework", "GunitFramework\GunitFramework.csproj", "{B026F4D9-9692-4271-8C21-EBA88C4DCB67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASTBuilder", "ASTBuilder\ASTBuilder\ASTBuilder\ASTBuilder.csproj", "{BE13B063-B062-47AF-AD95-FB75DC808934}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,18 @@ Global
 		{B026F4D9-9692-4271-8C21-EBA88C4DCB67}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B026F4D9-9692-4271-8C21-EBA88C4DCB67}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B026F4D9-9692-4271-8C21-EBA88C4DCB67}.Release|x86.ActiveCfg = Release|Any CPU
+		{BE13B063-B062-47AF-AD95-FB75DC808934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE13B063-B062-47AF-AD95-FB75DC808934}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE13B063-B062-47AF-AD95-FB75DC808934}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BE13B063-B062-47AF-AD95-FB75DC808934}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BE13B063-B062-47AF-AD95-FB75DC808934}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BE13B063-B062-47AF-AD95-FB75DC808934}.Debug|x86.Build.0 = Debug|Any CPU
+		{BE13B063-B062-47AF-AD95-FB75DC808934}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE13B063-B062-47AF-AD95-FB75DC808934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE13B063-B062-47AF-AD95-FB75DC808934}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BE13B063-B062-47AF-AD95-FB75DC808934}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BE13B063-B062-47AF-AD95-FB75DC808934}.Release|x86.ActiveCfg = Release|Any CPU
+		{BE13B063-B062-47AF-AD95-FB75DC808934}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

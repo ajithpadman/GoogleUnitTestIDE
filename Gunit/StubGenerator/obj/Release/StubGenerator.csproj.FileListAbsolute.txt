@@ -34,12 +34,3 @@ D:\MyProjects\Gunit\StubGenerator\bin\Release\GalaSoft.MvvmLight.Extras.pdb
 D:\MyProjects\Gunit\StubGenerator\bin\Release\GalaSoft.MvvmLight.Extras.xml
 D:\MyProjects\Gunit\StubGenerator\obj\Release\StubGenerator.dll
 D:\MyProjects\Gunit\StubGenerator\obj\Release\StubGenerator.pdb
-E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\StubGenerator\obj\Release\StubGenerator.csprojResolveAssemblyReference.cache
-E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\StubGenerator\obj\Release\StubGenerator.baml
-E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\StubGenerator\obj\Release\StubGenerator.g.cs
-E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\StubGenerator\obj\Release\StubGenerator_MarkupCompile.cache
-E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\StubGenerator\obj\Release\StubGenerator.g.resources
-E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\StubGenerator\obj\Release\StubGenerator.Properties.Resources.resources
-E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\StubGenerator\obj\Release\StubGenerator.csproj.GenerateResource.Cache
-E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\StubGenerator\obj\Release\StubGenerator.dll
-E:\MyProjects\Gunit\GoogleUnitTestIDE\Gunit\StubGenerator\obj\Release\StubGenerator.pdb
