@@ -1,6 +1,0 @@
-D:\4_MyProjects\ASTBuilder\ASTBuilder\CPPASTBuilder\obj\Debug\CPPASTBuilder.csprojResolveAssemblyReference.cache
-D:\4_MyProjects\ASTBuilder\ASTBuilder\CPPASTBuilder\bin\Debug\CPPASTBuilder.dll
-D:\4_MyProjects\ASTBuilder\ASTBuilder\CPPASTBuilder\bin\Debug\CPPASTBuilder.pdb
-D:\4_MyProjects\ASTBuilder\ASTBuilder\CPPASTBuilder\bin\Debug\ClangSharp.dll
-D:\4_MyProjects\ASTBuilder\ASTBuilder\CPPASTBuilder\obj\Debug\CPPASTBuilder.dll
-D:\4_MyProjects\ASTBuilder\ASTBuilder\CPPASTBuilder\obj\Debug\CPPASTBuilder.pdb

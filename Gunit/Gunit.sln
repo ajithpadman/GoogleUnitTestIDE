@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExecuter", "TestExecute
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GunitFramework", "GunitFramework\GunitFramework.csproj", "{B026F4D9-9692-4271-8C21-EBA88C4DCB67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASTBuilder", "ASTBuilder\ASTBuilder\ASTBuilder\ASTBuilder.csproj", "{BE13B063-B062-47AF-AD95-FB75DC808934}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASTBuilder", "ASTBuilder\ASTBuilder.csproj", "{BE13B063-B062-47AF-AD95-FB75DC808934}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

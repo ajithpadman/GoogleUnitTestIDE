@@ -1,0 +1,5 @@
+D:\4_MyProjects\ASTBuilder\ASTBuilder\ASTBuilder\bin\Debug\ASTBuilder.dll
+D:\4_MyProjects\ASTBuilder\ASTBuilder\ASTBuilder\bin\Debug\ASTBuilder.pdb
+D:\4_MyProjects\ASTBuilder\ASTBuilder\ASTBuilder\bin\Debug\ClangSharp.dll
+D:\4_MyProjects\ASTBuilder\ASTBuilder\ASTBuilder\obj\Debug\ASTBuilder.dll
+D:\4_MyProjects\ASTBuilder\ASTBuilder\ASTBuilder\obj\Debug\ASTBuilder.pdb

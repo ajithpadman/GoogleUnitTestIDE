@@ -105,7 +105,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ASTBuilder\ASTBuilder\ASTBuilder\ASTBuilder.csproj">
+    <ProjectReference Include="..\ASTBuilder\ASTBuilder.csproj">
       <Project>{be13b063-b062-47af-ad95-fb75dc808934}</Project>
       <Name>ASTBuilder</Name>
     </ProjectReference>
